@@ -1,6 +1,9 @@
-import app, { PORT } from './init';
+import app from 'utils/initServer';
 
-app.listen(PORT, () => {
-  console.log(`SERVER IS RUNNING... >> ${PORT}`);
-});
+const { PORT = 4000 } = process.env;
 
+const handleListen = () => {
+  console.log(`SERVER IS RUNNING >> ${PORT}`);
+};
+
+app.listen(PORT, handleListen);

@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:server": "NODE_ENV=development nodemon --exec babel-node src/app.js NODE_ENV=development",
-    "build": "NODE_ENV=development webpack"
+    "start:server": "cross-env NODE_PATH=src nodemon --exec babel-node src/app.js",
+    "build": "cross-env NODE_PATH=src webpack --w"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
