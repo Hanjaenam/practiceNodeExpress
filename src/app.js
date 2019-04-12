@@ -1,4 +1,4 @@
-import app from 'utils/initServer';
+import app from './initServer';
 
 const { PORT = 4000 } = process.env;
 

@@ -9,7 +9,7 @@ dotenv.config();
 
 const MODE = process.env.NODE_ENV;
 const devMode = MODE === 'development';
-const ENTRY_FILE = path.resolve(__dirname, 'src', 'assets');
+const ENTRY_FILE = path.resolve(__dirname, 'src', 'assets', 'main.js');
 const OUTPUT_DIR = path.resolve(__dirname, 'src', 'dist');
 
 const config = {
@@ -20,7 +20,7 @@ const config = {
   devtool: 'inline-source-map',
   output: {
     path: OUTPUT_DIR,
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.js', // entry : { 'main' } : 'main' -> 'app'으로 바꾸면 name이 app으로 설정됩니다.
   },
   module: {
     rules: [
@@ -42,18 +42,19 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash].css',
+      filename: devMode ? 'styles.css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
-    new HtmlWebpackPlugin({
-      title: 'practice',
-    }),
+    // new HtmlWebpackPlugin({
+    //   title: 'practice',
+    //   template: 'src/dist/test.html',
+    // }),
   ],
   optimization: {
     minimize: !devMode,

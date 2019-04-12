@@ -1,10 +1,13 @@
 doctype html
+head
+  title test Style
+  link(rel="stylesheet" href="/static/styles.css")
 html
   header
     include ../partials/header
   nav
     include ../partials/nav
   main
-    include ../partials/main
+    block main
   footer
     include ../partials/footer

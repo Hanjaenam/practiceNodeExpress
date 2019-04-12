@@ -1,6 +1,6 @@
 import express from 'express';
-import routes from 'utils/routes';
 import { home } from 'controllers/homeController';
+import routes from './routes';
 
 const homeRouter = express.Router();
 
