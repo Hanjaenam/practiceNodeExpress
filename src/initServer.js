@@ -4,10 +4,10 @@ import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import path from 'path';
-import homeRouter from 'routers/homeRouter';
+import { homeRouter, authRouter } from 'routers';
 import routes from './routers/routes';
 import './utils/connectDB';
-import { localsMiddleware } from './utils/middlewares';
+import localsMiddleware from './utils/middlewares';
 
 dotenv.config();
 
@@ -24,4 +24,5 @@ app.use(morgan('dev'));
 app.use(localsMiddleware);
 
 app.use(routes.home, homeRouter);
+app.use(routes.auth, authRouter);
 export default app;

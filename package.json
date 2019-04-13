@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:server": "cross-env NODE_PATH=src nodemon --exec babel-node src/app.js",
-    "build": "cross-env NODE_PATH=src webpack --w"
+    "start:server": "NODE_PATH=src nodemon --exec babel-node src/app.js",
+    "build": "NODE_PATH=src webpack --w"
   },
   "keywords": [],
   "author": "",

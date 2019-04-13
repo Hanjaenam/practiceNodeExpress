@@ -1,0 +1,18 @@
+.register-form.container.d-flex.align-items-center.justify-content-center
+  form.shadow.p-4.rounded
+    .form-group.mb-5
+      label(for="email") Email
+      input(type="email" class="form-control" id="email" placeholder="Email")
+    .form-group.mb-5
+      label(for="password") password
+      input(type="password" id="password" class="form-control" aria-describedby="explain_password_validation")
+      small(id="explain_password_validation" class="form-text text-muted") Your password must be 8-15 characters long, contain
+      | letters and numbers at least one spcial characters, and must not contain spaces
+    .form-group.mb-5
+      label(for="password_confirm") password confirm
+      input(type="password" id="password_confirm" class="form-control")
+    .form-row
+      .col
+        input(type="button" value="OK").btn.btn-primary.form-control
+      .col
+        input(type="button" value="cancle").btn.btn-primary.form-control

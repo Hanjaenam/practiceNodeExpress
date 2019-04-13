@@ -1,8 +1,9 @@
-header.d-flex.justify-content-between
-  div.pagename
-    button.btn.btn-outline-dark=pageName
-  div.userinfo
+.d-flex.justify-content-between.p-2
+  div
+    a.btn.btn-outline-light(role="button" href="/") Home
+  div.userinfo.d-lnline
     if userName
       p.username=userName
     else
-      button.btn.btn-outline-primary Login
+      button.btn.btn-outline-primary(data-toggle="modal" data-target="#login_form") Login
+include loginForm.pug

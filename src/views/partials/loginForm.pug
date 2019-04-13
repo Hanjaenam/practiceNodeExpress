@@ -1,0 +1,18 @@
+.modal.fade#login_form(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+  .modal-dialog(role="document")
+    .modal-content
+      .modal-header
+        h5.modal-title#tlogin_form_label Login
+        button.close(data-dismiss="modal" aria-label="Close")
+          span(aria-hidden="true") &times;
+      .modal-body
+        form
+          .form-group
+            label(for="email") Email
+            input(type="email" class="form-control" id="email" placeholder="Email")
+          .form-group
+            label(for="password") password
+            input(type="password" id="password" class="form-control" placeholder="password")
+      .modal-footer.d-flex
+        button.btn.btn-primary.flex-fill(type="button") Sign In
+        a.btn.btn-primary.flex-fill(role="button" href="auth/register") Sign Up
