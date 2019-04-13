@@ -7,6 +7,7 @@ import path from 'path';
 import homeRouter from 'routers/homeRouter';
 import routes from './routers/routes';
 import './utils/connectDB';
+import { localsMiddleware } from './utils/middlewares';
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ app.use('/static', express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
+
+app.use(localsMiddleware);
 
 app.use(routes.home, homeRouter);
 export default app;
