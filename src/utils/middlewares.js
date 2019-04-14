@@ -1,5 +1,5 @@
 import path from 'path';
-import routes from '../routers/routes';
+import routes from 'routers/routes';
 
 export default (req, res, next) => {
   res.locals.siteName = 'JaeNam';

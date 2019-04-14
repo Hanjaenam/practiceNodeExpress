@@ -2,10 +2,12 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 dotenv.config();
-console.log(process.env.MONGO_URI);
+
+mongoose.Promise = global.Promise; // X
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useFindAndModify: false,
+  useCreateIndex: true,
 });
 
 const dbConnection = mongoose.connection;

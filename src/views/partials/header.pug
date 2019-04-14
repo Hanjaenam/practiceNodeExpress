@@ -1,9 +1,8 @@
 .d-flex.justify-content-between.p-2
   div
-    a.btn.btn-outline-light(role="button" href="/") Home
+    a.btn.btn-outline-light(role="button" href=`${routes.home}`) Home
   div.userinfo.d-lnline
     if userName
       p.username=userName
     else
-      button.btn.btn-outline-primary(data-toggle="modal" data-target="#login_form") Login
-include loginForm.pug
+      a.btn.btn-outline-primary(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.logIn)}`) Login

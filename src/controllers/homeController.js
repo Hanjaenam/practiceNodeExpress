@@ -1,3 +1,3 @@
 export const home = (req, res) => {
-  res.render('home', { pageName: 'Home' });
+  res.render('pages/home', { pageName: 'Home' });
 };

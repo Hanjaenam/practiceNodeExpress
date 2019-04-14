@@ -6,7 +6,9 @@
   },
   "rules": {
     "no-console": "off",
-    "import/first": 0
+    "import/first": 0,
+    "func-names": 0,
+    "no-underscore-dangle":0
   },
   "settings": {
     "import/resolver": {

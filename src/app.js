@@ -1,4 +1,6 @@
-import app from './initServer';
+import app from './configuration/server';
+import './configuration/connectDB';
+import './configuration/passport';
 
 const { PORT = 4000 } = process.env;
 
