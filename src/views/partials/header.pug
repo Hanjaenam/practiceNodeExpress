@@ -1,8 +1,8 @@
-.d-flex.justify-content-between.p-2
+.d-flex.justify-content-between.align-items-center.p-2
   div
     a.btn.btn-outline-light(role="button" href=`${routes.home}`) Home
-  div.userinfo.d-lnline
-    if userName
-      p.username=userName
+  div
+    if user
+      a.btn.btn-outline-light(role="button" href=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`) Edit Profile
     else
-      a.btn.btn-outline-primary(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.logIn)}`) Login
+      a.btn.btn-outline-light(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.logIn)}`) Login

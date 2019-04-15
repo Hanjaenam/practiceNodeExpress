@@ -7,9 +7,11 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import expressSession from 'express-session';
 import path from 'path';
-import { homeRouter, authRouter } from 'routers';
-import routes from 'routers/routes';
+import './connectDB';
+import './passportLocal';
 import localsMiddleware from 'utils/middlewares';
+import routes from 'routers/routes';
+import { homeRouter, authRouter, userRouter } from 'routers';
 
 dotenv.config();
 
@@ -18,12 +20,12 @@ app.use(helmet());
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '..', 'views'));
 // url 경로 localhost:8000/static으로 들어가면 dist에 있는 파일을 사용할 수 있습니다.
-app.use('/static', express.static(path.join(__dirname, '..', 'dist')));
+app.use('/dist', express.static(path.join(__dirname, '..', 'dist')));
 app.use(cookieParser());
 app.use(
   expressSession({
     secret: 'key',
-    resave: true,
+    resave: false,
     saveUninitialized: true,
   })
 );
@@ -37,5 +39,6 @@ app.use(localsMiddleware);
 
 app.use(routes.home, homeRouter);
 app.use(routes.auth, authRouter);
+app.use(routes.user, userRouter);
 
 export default app;

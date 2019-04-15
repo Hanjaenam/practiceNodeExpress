@@ -1,0 +1,15 @@
+extends /layouts/template
+
+block main
+  .container
+    form(action="")
+      .row
+        .col
+          img.img-fluid.img-thumbnail(src="/dist/basic_profile.png")
+        .col
+          .form-group
+            label(for="username") username
+            input.form-control(aria-describedby="usernameHelp" placeholder=`${user.username ? user.username : 'no username'}`)
+            small.form-text.text-muted#usernameHelp help
+      .row
+        .col

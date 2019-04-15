@@ -1,6 +1,6 @@
 import passport from 'passport';
 import { Strategy as LocalStrategy } from 'passport-local';
-import passportLocalCB from 'utils/passport/local';
+import passportLocalCB from 'utils/passport/localCB';
 import UserModel from 'models/user';
 
 passport.use(
@@ -18,7 +18,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(email, done) {
-  UserModel.find({ email }, (err, user) => {
+  UserModel.find({ email }, function(err, user) {
     done(err, user);
   });
 });
