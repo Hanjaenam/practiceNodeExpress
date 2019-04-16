@@ -1,0 +1,42 @@
+.edit-profile {
+  .profile-photo {
+    position: relative;
+    .profile-photo-alert {
+      cursor: pointer;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 0.5s ease-in-out;
+      label {
+        font-size: 2rem;
+        font-weight: 600;
+        color: white;
+        cursor: pointer;
+
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      input[type='file'] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+//https://bloodguy.tistory.com/895 --> thumbnail 미리보기 js

@@ -1,5 +1,5 @@
 import express from 'express';
-import { onlyAfterAuth } from 'utils/middlewares';
+import { onlyAfterAuth } from 'config/middlewares';
 import { getEditProfile } from 'controllers/userController';
 import routes from './routes';
 

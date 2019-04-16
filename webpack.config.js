@@ -1,26 +1,22 @@
-const dotenv = require('dotenv');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+// const autoprefixer = require('autoprefixer');
+// const ExtractCss = require('extract-text-webpack-plugin');
 
-dotenv.config();
-
-const MODE = process.env.NODE_ENV;
+const MODE = process.env.WEBPACK_ENV;
 const devMode = MODE === 'development';
-const ENTRY_FILE = path.resolve(__dirname, 'src', 'assets', 'main.js');
+const ENTRY_FILE = path.resolve(__dirname, 'src', 'assets', 'js', 'main.js');
 const OUTPUT_DIR = path.resolve(__dirname, 'src', 'dist');
 
 const config = {
-  entry: {
-    main: ENTRY_FILE,
-  },
+  entry: ['@babel/polyfill', ENTRY_FILE],
   mode: MODE,
   devtool: 'inline-source-map',
   output: {
     path: OUTPUT_DIR,
-    filename: '[name].bundle.js', // entry : { 'main' } : 'main' -> 'app'으로 바꾸면 name이 app으로 설정됩니다.
+    filename: '[name].js', // entry : { 'main' } : 'main' -> 'app'으로 바꾸면 name이 app으로 설정됩니다.
   },
   module: {
     rules: [

@@ -1,15 +1,16 @@
 extends /layouts/template
 
 block main
-  .container
+  .container.edit-profile
     form(action="")
       .row
+        .col.p-0.profile-photo
+          img.profile-photo-img.img-fluid.img-thumbnail(src="/dist/basic_profile.png")
+          div.profile-photo-alert
+            label(for="changeProfilePhoto") change profile photo
+            input.form-control-file#changeProfilePhoto(type="file")
         .col
-          img.img-fluid.img-thumbnail(src="/dist/basic_profile.png")
-        .col
-          .form-group
-            label(for="username") username
-            input.form-control(aria-describedby="usernameHelp" placeholder=`${user.username ? user.username : 'no username'}`)
-            small.form-text.text-muted#usernameHelp help
-      .row
-        .col
+          .form-group.row
+            label(for="email").col-4.col-form-label.text-center Email
+            .col-8
+              input.form-control-plaintext.text-center#email(type="text" readonly value=`${user.username ? user.username : 'no username'}`)
