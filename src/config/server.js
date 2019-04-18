@@ -11,7 +11,7 @@ import './connectDB';
 import './passportLocal';
 import routes from 'routers/routes';
 import { homeRouter, authRouter, userRouter } from 'routers';
-import localsMiddleware from './middlewares';
+import localsMiddleware from 'middlewares';
 
 dotenv.config();
 

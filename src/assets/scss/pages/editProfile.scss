@@ -1,7 +1,7 @@
 .edit-profile {
   .profile-photo {
     position: relative;
-    .profile-photo-alert {
+    .box{
       cursor: pointer;
       opacity: 0;
       width: 100%;
@@ -10,13 +10,12 @@
       position: absolute;
       top: 0;
       left: 0;
-      transition: 0.5s ease-in-out;
+      transition: 0.3s ease-in-out;
       label {
         font-size: 2rem;
         font-weight: 600;
         color: white;
         cursor: pointer;
-
         width: 100%;
         height: 100%;
         display: flex;
