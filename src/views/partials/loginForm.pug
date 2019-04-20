@@ -2,12 +2,16 @@
   form.shadow.p-4.rounded(action=`${routes.makeRedirectPath(routes.auth, routes.logIn)}` method="POST")
     .form-group.mb-5
       label(for="email") Email
-      input(type="email" name="email" placeholder="Email").form-control
+      input(type="email" name="email" placeholder="Email" aria-describedby='email-error').form-control
+      if errorType === 'email'
+        small#email-error.form-text(style="color:red;")=message
     .form-group.mb-5
       label(for="password") password
-      input(type="password" name="password" placeholder="password").form-control
+      input(type="password" name="password" placeholder="password" aria-describedby='password-error').form-control
+      if errorType === 'password'
+        small#password-error.form-text(style="color:red;")=message
     .form-row
       .col
         input(type="submit" value="Log in").btn.btn-primary.form-control
       .col
-        a(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.register)}`).btn.btn-primary.form-control Sign Up
+        a(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.register)}`).btn.btn-primary.form-control Register

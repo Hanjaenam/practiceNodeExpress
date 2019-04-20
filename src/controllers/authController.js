@@ -19,9 +19,12 @@ export const postRegister = async (req, res, next) => {
   }
 };
 export const getLogIn = (req, res, next) => {
-  res.render('pages/auth/logIn');
+  res.render('pages/auth/logIn', {
+    message: req.flash('message')[0],
+    errorType: req.flash('errorType')[0],
+  });
 };
 export const postLogIn = passport.authenticate('local', {
-  failureRedirect: routes.makeRedirectPath(routes.auth, routes.register),
+  failureRedirect: routes.makeRedirectPath(routes.auth, routes.logIn),
   successRedirect: routes.home,
 });

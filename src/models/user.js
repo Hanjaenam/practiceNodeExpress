@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     unique: true,
   },
-  profile: {
+  profilePhotoUrl: {
     type: String,
   },
   email: {
@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  hashed_password: {
+  hashedPassword: {
     type: String,
     required: true,
   },
@@ -22,11 +22,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  created_at: {
+  createdAt: {
     type: Date,
     default: Date.now,
   },
-  phone_number: {
+  phoneNumber: {
     type: Number,
     index: 'hashed',
     unique: true,
@@ -35,7 +35,7 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.virtual('password').set(function(password) {
   this.salt = this.makeSalt();
-  this.hashed_password = this.encryptPassword(password, this.salt);
+  this.hashedPassword = this.encryptPassword(password, this.salt);
 });
 UserSchema.methods.makeSalt = () => {
   return `${Math.round(new Date().valueOf() * Math.random())}`;
@@ -54,9 +54,9 @@ UserSchema.methods.encryptPassword = function(password, salt) {
 };
 UserSchema.methods.authenticate = function(password, salt) {
   if (salt) {
-    return this.encryptPassword(password, salt) === this.hashed_password;
+    return this.encryptPassword(password, salt) === this.hashedPassword;
   }
-  return this.encryptPassword(password) === this.hashed_password;
+  return this.encryptPassword(password) === this.hashedPassword;
 };
 
 UserSchema.static('findByEmail', function(email, cb) {

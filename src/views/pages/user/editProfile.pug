@@ -2,16 +2,17 @@ extends /layouts/template
 
 block main
   .container.edit-profile
-    form(action="").p-5
-      .form-group.profile-photo.w-75.m-auto
-        img.img-fluid.thumbnail(src="/dist/basic_profile.png")
+    form.p-5(method="POST" enctype="multipart/form-data" action="")
+      .form-group.profile-photo.w-50.m-auto
+        img.img-fluid.thumbnail.w-100(src=`/dist/user/profile_photo/${test ? test : 'basic.png'}`)
         .box
-          label(for="profile-photo_input") change profile photo
-          input.form-control-file#profile-photo_input(type="file" accept="image/*")
+          label.d-flex.justify-content-center.align-items-center(for="profile-photo_input") 
+            p.text-center.d-inline-block change profile photo
+          input.form-control-file#profile-photo_input(type="file" accept="image/*" name="profilePhotoUrl")
       .form-group.row.w-75.mx-auto.mt-5
-        input.form-control-plaintext.col-10.username(type="text" aria-describedby="username-help" readonly value=`${user.username ? user.username : 'no username'}`)
-        .col-2.p-0
-          button.btn.btn-primary.btn-lg.w-100(type="button") Ok
-        small#username-help.form-text.text-muted 변경할 이름을 입력 후, OK를 눌르면 이름이 변경됩니다.
+        input.form-control-plaintext.col-sm-10.username(type="text" aria-describedby="username-help" readonly value=`${user.username ? user.username : 'no username'}`)
+        .col-sm-2.p-0
+          input.btn.btn-primary.w-100(type="submit" value="OK")
+        small#username-help.form-text.text-muted 이름과, 프로필 사진을 변경한 후, OK를 눌르면 이름이 변경됩니다.
       .form-group.w-75.mx-auto.mt-5
-        button.btn.btn-primary.btn-lg.btn-block(type="button") change password
+        button.btn.btn-primary.btn-block(type="button") change password

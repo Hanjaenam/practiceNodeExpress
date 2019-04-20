@@ -5,10 +5,9 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
+import flash from 'connect-flash';
 import expressSession from 'express-session';
 import path from 'path';
-import './connectDB';
-import './passportLocal';
 import routes from 'routers/routes';
 import { homeRouter, authRouter, userRouter } from 'routers';
 import localsMiddleware from 'middlewares';
@@ -29,6 +28,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(flash());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());

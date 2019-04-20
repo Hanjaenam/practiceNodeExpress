@@ -8,6 +8,7 @@ passport.use(
     {
       usernameField: 'email',
       passwordField: 'password',
+      passReqToCallback: true,
     },
     passportLocalCB
   )

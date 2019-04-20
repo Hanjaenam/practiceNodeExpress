@@ -2,7 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 // const ExtractCss = require('extract-text-webpack-plugin');
 
 const MODE = process.env.WEBPACK_ENV;
@@ -38,7 +39,25 @@ const config = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins() {
+                return [autoprefixer({ browsers: 'cover 99.5%' })];
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
       },
     ],
   },
@@ -46,6 +65,11 @@ const config = {
     new MiniCssExtractPlugin({
       filename: devMode ? 'styles.css' : '[name].[hash].css',
       chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+    }),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery',
     }),
     // new HtmlWebpackPlugin({
     //   title: 'practice',
