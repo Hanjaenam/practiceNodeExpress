@@ -9,8 +9,9 @@ import flash from 'connect-flash';
 import expressSession from 'express-session';
 import path from 'path';
 import routes from 'routers/routes';
-import { homeRouter, authRouter, userRouter } from 'routers';
+import { rootRouter, authRouter, userRouter } from 'routers';
 import localsMiddleware from 'middlewares';
+import 'config/passport';
 
 dotenv.config();
 
@@ -37,7 +38,7 @@ app.use(morgan('dev'));
 
 app.use(localsMiddleware);
 
-app.use(routes.home, homeRouter);
+app.use(routes.home, rootRouter);
 app.use(routes.auth, authRouter);
 app.use(routes.user, userRouter);
 

@@ -1,4 +1,4 @@
-import User from 'models/user';
+import User from 'database/models/user';
 
 export const getEditProfile = (req, res, next) => {
   res.render('pages/user/editProfile');

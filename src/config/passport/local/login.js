@@ -1,6 +1,8 @@
-import UserModel from 'models/user';
+import passport from 'passport';
+import { Strategy as LocalStrategy } from 'passport-local';
+import UserModel from 'database/models/user';
 
-export default (req, email, password, done) => {
+const cb = (req, email, password, done) => {
   UserModel.findOne({ email }, function(err, user) {
     if (err) return done(err);
     if (!user)
@@ -17,6 +19,18 @@ export default (req, email, password, done) => {
         req.flash('message', 'Incorrect password'),
         req.flash('errorType', 'password')
       );
-    return done(null, user, req.flash('message', 'welcome!'));
+    return done(null, user, req.flash('message', 'WELCOME!'));
   });
 };
+
+passport.use(
+  'local-login',
+  new LocalStrategy(
+    {
+      usernameField: 'email',
+      passwordField: 'password',
+      passReqToCallback: true,
+    },
+    cb
+  )
+);

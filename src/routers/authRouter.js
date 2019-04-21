@@ -1,6 +1,6 @@
 import express from 'express';
 import { getLogIn, postLogIn, getRegister, postRegister } from 'controllers/authController';
-import routes from 'routers/routes';
+import routes from './routes';
 
 const authRouter = express.Router();
 authRouter.get(routes.register, getRegister);

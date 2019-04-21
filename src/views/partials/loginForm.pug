@@ -4,12 +4,12 @@
       label(for="email") Email
       input(type="email" name="email" placeholder="Email" aria-describedby='email-error').form-control
       if errorType === 'email'
-        small#email-error.form-text(style="color:red;")=message
+        small#email-error.form-text.text-danger=message
     .form-group.mb-5
       label(for="password") password
       input(type="password" name="password" placeholder="password" aria-describedby='password-error').form-control
       if errorType === 'password'
-        small#password-error.form-text(style="color:red;")=message
+        small#password-error.form-text.text-danger=message
     .form-row
       .col
         input(type="submit" value="Log in").btn.btn-primary.form-control

@@ -1,0 +1,10 @@
+@include media-breakpoint-up(lg) {
+  .register-form {
+    width: 60%;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .register-form {
+    width: 50%;
+  }
+}

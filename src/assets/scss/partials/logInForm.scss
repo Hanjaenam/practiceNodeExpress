@@ -1,5 +1,10 @@
 @include media-breakpoint-up(lg) {
   .logIn-form {
+    width: 60%;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .logIn-form {
     width: 50%;
   }
 }

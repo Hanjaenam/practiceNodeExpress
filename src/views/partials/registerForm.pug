@@ -2,13 +2,17 @@
   form.shadow.p-4.rounded(action=`${routes.makeRedirectPath(routes.auth,routes.register)}` method="POST")
     .form-group.mb-5
       label(for="email") Email
-      input(type="email" placeholder="Email" name="email" aria-describedby="emailHelp").form-control#email
-      small.form-text.text-muted#emailHelp We'll never share your email
+      input(type="email" placeholder="Email" name="email" aria-describedby="email-help").form-control#email
+      small.form-text.text-muted#email-help We'll never share your email
+      if errorType === 'email'
+        small.form-text.text-danger#email-help=message
     .form-group.mb-5
       label(for="password") password
-      input(type="password" aria-describedby="explain_password_validation" name="password").form-control#password
-      small.form-text.text-muted#explain_password_validation Your password must be 8-15 characters long, contain
-      | letters and numbers at least one spcial characters, and must not contain spaces
+      input(type="password" aria-describedby="password-help" name="password").form-control#password
+      small.form-text.text-muted#password-help Your password must be 8-15 characters long, 
+        |contain letters and numbers at least one spcial characters, and must not contain spaces
+      if errorType === 'password'
+        small.form-text.text-danger#password-help=message
     .form-group.mb-5
       label(for="password_confirm") password confirm
       input(type="password").form-control#password_confirm
