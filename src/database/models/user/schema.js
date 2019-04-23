@@ -30,4 +30,7 @@ export default new mongoose.Schema({
     index: 'hashed',
     unique: true,
   },
+  naverId: {
+    type: Number,
+  },
 });

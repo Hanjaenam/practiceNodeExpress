@@ -20,3 +20,5 @@ const handleError = error => {
 };
 dbConnection.once('open', handleOpen);
 dbConnection.on('error', handleError);
+
+export default dbConnection;

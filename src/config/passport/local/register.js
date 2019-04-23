@@ -38,7 +38,7 @@ const cb = (req, email, password, done) => {
       }
       return done(e);
     }
-    return done(null, user, req.flash('message', 'WELCOME!'));
+    return done(null, user);
   });
 };
 

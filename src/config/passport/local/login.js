@@ -19,7 +19,7 @@ const cb = (req, email, password, done) => {
         req.flash('message', 'Incorrect password'),
         req.flash('errorType', 'password')
       );
-    return done(null, user, req.flash('message', 'WELCOME!'));
+    return done(null, user);
   });
 };
 
