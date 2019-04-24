@@ -2,7 +2,7 @@
   form.shadow.p-4.rounded(action=`${routes.makeRedirectPath(routes.auth,routes.register)}` method="POST")
     .form-group.mb-5
       label(for="email") Email
-      input(type="email" placeholder="Email" name="email" aria-describedby="email-help").form-control#email
+      input(type="email" placeholder="Email" name="email" aria-describedby="email-help" autofocus).form-control#email
       small.form-text.text-muted#email-help We'll never share your email
       if errorType === 'email'
         small.form-text.text-danger#email-help=message
@@ -21,3 +21,15 @@
         input(type="submit" value="OK").btn.btn-primary.form-control
       .col
         a(role="button" href=routes.home).btn.btn-primary.form-control cancle
+script
+  console.log('1')
+//- script
+//-   console.log('1')
+  //- const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+  //- const passwordRegex = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+  //- const emailInput = document.querySelecotr('.register-form form input#email');
+  //- const passwordInput = document.querySelecotr('.register-form form input#password');
+  //- console.log(emailInput)
+  //- emailInput.addEventListener("change", (e) => {
+  //-   cosnole.log(e.target.value)
+  //- })

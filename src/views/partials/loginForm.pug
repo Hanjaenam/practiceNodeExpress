@@ -2,7 +2,7 @@
   form.shadow.p-4.rounded(action=`${routes.makeRedirectPath(routes.auth, routes.logIn)}` method="POST")
     .form-group.mb-5
       label(for="email") Email
-      input(type="email" name="email" placeholder="Email" aria-describedby='email-error').form-control
+      input(type="email" name="email" placeholder="Email" aria-describedby='email-error' autofocus).form-control
       if errorType === 'email'
         small#email-error.form-text.text-danger=message
     .form-group.mb-5

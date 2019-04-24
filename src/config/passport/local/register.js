@@ -14,9 +14,9 @@ const cb = (req, email, password, done) => {
         req.flash('errorType', 'email')
       );
     }
-    const user = new UserModel({ email, password });
+    const user = await new UserModel({ email, password });
     try {
-      await user.save();
+      user.save();
     } catch (e) {
       if (e instanceof mongoose.Error.ValidationError) {
         if (e.errors.email) {

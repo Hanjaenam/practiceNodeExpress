@@ -1,5 +1,5 @@
 import express from 'express';
-import { onlyAfterAuth, uploadProfilePhoto } from 'middlewares';
+import { onlyAfterAuth, uploadProfilePhoto } from 'middlewares/locals';
 import { getEditProfile, postEditProfile } from 'controllers/userController';
 import routes from './routes';
 

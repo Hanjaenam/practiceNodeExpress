@@ -10,7 +10,7 @@ import expressSession from 'express-session';
 import path from 'path';
 import routes from 'routers/routes';
 import { rootRouter, authRouter, userRouter } from 'routers';
-import localsMiddleware from 'middlewares';
+import localsMiddleware from 'middlewares/locals';
 import 'config/passport';
 
 dotenv.config();
@@ -24,7 +24,7 @@ app.use('/dist', express.static(path.join(__dirname, '..', 'dist')));
 app.use(cookieParser());
 app.use(
   expressSession({
-    secret: 'key',
+    secret: process.env.SESSION_SECRET_KEY,
     resave: false,
     saveUninitialized: true,
   })
