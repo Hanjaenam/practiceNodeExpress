@@ -1,3 +1,5 @@
+import '../../scss/pages/editProfile.scss';
+
 const profilePhoto = document.querySelector('.profile-photo');
 if (profilePhoto) {
   const reader = new FileReader();

@@ -3,7 +3,8 @@ html
   head
     meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
     title=siteName
-    link(rel="stylesheet" href="/dist/styles.css")
+    link(rel="stylesheet" href="/dist/css/main.css")
+    block head
   body
     .d-flex.flex-column.wrap
       header.bg-dark
@@ -11,4 +12,4 @@ html
           include /partials/header
       main.flex-grow-1
         block main
-  script(src="/dist/main.js")
+  script(src="/dist/js/main.js")

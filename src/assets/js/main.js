@@ -1,10 +1,4 @@
-import 'bootstrap';
+import 'bootstrap'; // -> 왜 넣는 건지 확인할 것. ( css 에서만 넣어줘도 되지 않을까? )
 import '../scss/styles.scss';
-
-import './loading';
-// split 할 것
-// page view - editProfile 에서만 사용하는 js인데, main에다 모두 때려 박게 되면
-// 모든 view에서 해당 view에 필요도 없는 js까지 include하게 된다.
-// --> 즉 트래픽 저하 발생
-// split 할 것. ( webpack )
-import './pages/editProfile';
+// global 한 것들만 import 할 것!!
+// 모든 page에서 사용되어야 할 것들!!

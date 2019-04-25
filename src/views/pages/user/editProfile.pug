@@ -1,5 +1,7 @@
 extends /layouts/template
 
+block head
+  link(rel="stylesheet" href="/dist/css/editProfile.css")
 block main
   .container.edit-profile
     form.p-5(method="POST" enctype="multipart/form-data" action="")
@@ -16,3 +18,4 @@ block main
         small#username-help.form-text.text-muted 이름과, 프로필 사진을 변경한 후, OK를 눌르면 이름이 변경됩니다.
       .form-group.w-75.mx-auto.mt-5
         button.btn.btn-primary.btn-block(type="button") change password
+  script(src="/dist/js/editProfile.js")
