@@ -1,13 +1,14 @@
 import passport from 'passport';
-// 사용자 인증 성공 시 호출
-// 사용자 정보를 이용해 세션을 만듦
-// 로그인 이후에 들어오는 요청은 deserializeUser 메소드 안에서 이 세션을 확인할 수 있음
+
+// 로그인이 성공하면 이 메서드를 이용하여 사용자정보를 session에 저장합니다.
+// Browser -> Client
 passport.serializeUser(function(user, done) {
-  done(null, user); // 이 인증 콜백에서 넘겨주는 user 객체의 정보를 이용해 세션 생성
+  done(null, user); // session에 저장할 정보를 두 번째 파라미터(user)로 넘깁니다.
 });
 
-// 사용자 인증 이후 사용자 요청 시마다 호출
-// user -> 사용자 인증 성공 시 serializeUser 메소드를 이용해 만들었던 세션 정보가 파라미터로 넘어온 것임
+// node.js의 모든 페이지에서 접근할 때, 로그인이 되어 있을 경우 모든 사용자 페이지를 접근할 경우
+// deserializeUser가 발생 serializerUser에서 session에 저장된 값을 이용해서 HTTP Request에 리턴
+// Client -> Browser
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });

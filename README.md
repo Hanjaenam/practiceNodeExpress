@@ -6,12 +6,22 @@
 &#9745; finish login, register (flash, check before save(regex)) <br>
 &#9745; check mongoose API (path, virtual, method, static) <br>
 &#9744; append github, Google, naver auth <br>
-&#9744; passport serialize, deserialize 확인할 것 <br>
+&#9745; passport serialize, deserialize 확인할 것 <br>
 &#9744; block curl <br>
 &#9744; table collection <br>
 &#9744; js 에서 import 'bootstrap' 왜 하는 지 알아볼 것 <br>
 
 <hr>
+
+## 19/4/26
+
+- scss mixin
+  - socialLoginBtn 작성
+- pug mixin
+  - socialLoginBtn 작성
+- Directory structure 한 번 확인해볼 것
+  - 더 나은 방향으로 수정
+    <hr>
 
 ## 19/4/25
 

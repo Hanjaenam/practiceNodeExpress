@@ -1,3 +1,5 @@
+include /mixins/socialLoginBtn
+
 .logIn-form.container.mt-5
   form.shadow.p-4.rounded(action=`${routes.makeRedirectPath(routes.auth, routes.logIn)}` method="POST")
     .form-group.mb-5
@@ -10,8 +12,9 @@
       input(type="password" name="password" placeholder="password" aria-describedby='password-error').form-control
       if errorType === 'password'
         small#password-error.form-text.text-danger=message
-    .form-row
+    .form-row.mb-5
       .col
         input(type="submit" value="Log in").btn.btn-primary.form-control
       .col
         a(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.register)}`).btn.btn-primary.form-control Register
+    +socialLoginBtn("n", "네이버 아이디로 로그인")

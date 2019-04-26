@@ -21,10 +21,12 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '..', 'views'));
 // url 경로 localhost:8000/static으로 들어가면 static에 있는 파일을 사용할 수 있습니다.
 app.use('/dist', express.static(path.join(__dirname, '..', 'dist')));
+// cookie를 내가 설정하거나, 사용하려면 미들웨어를 사용
 app.use(cookieParser());
+// session은 cookie를 기본으로 하여 기능을 확장한 것.
 app.use(
   expressSession({
-    secret: process.env.SESSION_SECRET_KEY,
+    secret: process.env.SESSION_SECRET_KEY, // 쿠키에 저장할 connect.sid값을 암호화할 키값 입력
     resave: false,
     saveUninitialized: true,
   })
