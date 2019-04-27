@@ -1,9 +1,7 @@
-import passport from 'passport';
-import { Strategy as LocalStrategy } from 'passport-local';
 import UserModel from 'database/models/user';
 import mongoose from 'mongoose';
 
-const cb = (req, email, password, done) => {
+export default (req, email, password, done) => {
   UserModel.findOne({ email }, async (err, isExist) => {
     if (err) return done(err);
     if (isExist) {
@@ -41,15 +39,3 @@ const cb = (req, email, password, done) => {
     return done(null, user);
   });
 };
-
-passport.use(
-  'local-register',
-  new LocalStrategy(
-    {
-      usernameField: 'email',
-      passwordField: 'password',
-      passReqToCallback: true,
-    },
-    cb
-  )
-);

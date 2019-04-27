@@ -1,4 +1,4 @@
-mixin socialLoginBtn(title, inputValue)
+mixin socialLoginBtn(title, inputValue, oauthType)
   .form-group.rounded.social-login(class=title)
     span.title=title
-    input(type="submit" value=inputValue).form-control
+    a(role="button" href=routes.makeRedirectPath(routes.auth, routes[oauthType])).btn.form-control=inputValue

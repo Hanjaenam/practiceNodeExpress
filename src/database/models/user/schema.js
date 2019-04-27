@@ -15,11 +15,15 @@ export default new mongoose.Schema({
   },
   hashedPassword: {
     type: String,
-    required: true,
+    required() {
+      return this.naverId === undefined;
+    },
   },
   salt: {
     type: String,
-    required: true,
+    required() {
+      return this.naverId === undefined;
+    },
   },
   createdAt: {
     type: Date,

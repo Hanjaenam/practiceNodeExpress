@@ -22,6 +22,9 @@ module.exports = readFiles(SEARCH_FILE_PATH).then(entry => {
       path: OUTPUT_DIR,
       filename: 'js/[name].js', // entry : { 'main' } : 'main' -> 'app'으로 바꾸면 name이 app으로 설정됩니다.
     },
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
     module: {
       rules: [
         {

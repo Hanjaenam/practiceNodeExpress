@@ -1,3 +1,3 @@
-import './local/login';
-import './local/register';
+import './local';
+import './naver';
 import './serialize';

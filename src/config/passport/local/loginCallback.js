@@ -1,8 +1,6 @@
-import passport from 'passport';
-import { Strategy as LocalStrategy } from 'passport-local';
 import UserModel from 'database/models/user';
 
-const cb = (req, email, password, done) => {
+export default (req, email, password, done) => {
   UserModel.findOne({ email }, function(err, user) {
     if (err) return done(err);
     if (!user)
@@ -22,15 +20,3 @@ const cb = (req, email, password, done) => {
     return done(null, user);
   });
 };
-
-passport.use(
-  'local-login',
-  new LocalStrategy(
-    {
-      usernameField: 'email',
-      passwordField: 'password',
-      passReqToCallback: true,
-    },
-    cb
-  )
-);

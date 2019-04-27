@@ -7,20 +7,18 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import flash from 'connect-flash';
 import expressSession from 'express-session';
-import path from 'path';
 import routes from 'routers/routes';
 import { rootRouter, authRouter, userRouter } from 'routers';
 import localsMiddleware from 'middlewares/locals';
-import 'config/passport';
 
 dotenv.config();
 
 const app = express();
 app.use(helmet());
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, '..', 'views'));
+app.set('views', process.env.VIEWS_PATH);
 // url 경로 localhost:8000/static으로 들어가면 static에 있는 파일을 사용할 수 있습니다.
-app.use('/dist', express.static(path.join(__dirname, '..', 'dist')));
+app.use('/dist', express.static(process.env.DIST_PATH));
 // cookie를 내가 설정하거나, 사용하려면 미들웨어를 사용
 app.use(cookieParser());
 // session은 cookie를 기본으로 하여 기능을 확장한 것.
@@ -43,5 +41,9 @@ app.use(localsMiddleware);
 app.use(routes.home, rootRouter);
 app.use(routes.auth, authRouter);
 app.use(routes.user, userRouter);
+
+app.print = () => {
+  console.log(2);
+};
 
 export default app;

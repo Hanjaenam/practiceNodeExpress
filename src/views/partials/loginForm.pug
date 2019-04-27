@@ -17,4 +17,4 @@ include /mixins/socialLoginBtn
         input(type="submit" value="Log in").btn.btn-primary.form-control
       .col
         a(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.register)}`).btn.btn-primary.form-control Register
-    +socialLoginBtn("n", "네이버 아이디로 로그인")
+    +socialLoginBtn("n", "네이버 아이디로 로그인", 'naver')

@@ -21,4 +21,4 @@ UserSchema.path('email').validate(validators.email);
 UserSchema.path('hashedPassword').validate(validators.password);
 UserSchema.path('phoneNumber').validate(validators.phoneNumber);
 
-export default mongoose.model('user', UserSchema);
+export default mongoose.model('User', UserSchema);

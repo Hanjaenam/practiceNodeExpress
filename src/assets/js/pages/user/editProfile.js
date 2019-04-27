@@ -1,4 +1,4 @@
-import '../../../scss/pages/user/editProfile.scss';
+import 'assets/scss/pages/user/editProfile.scss';
 
 const profilePhoto = document.querySelector('.profile-photo');
 if (profilePhoto) {
