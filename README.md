@@ -2,16 +2,29 @@
 
 ## TO DO
 
-&#9745; fix css <br>
-&#9745; finish login, register (flash, check before save(regex)) <br>
-&#9745; check mongoose API (path, virtual, method, static) <br>
-&#9745; passport serialize, deserialize 확인할 것 <br>
-&#9744; append facebook, Google, instagram, naver auth <br>
-&#9744; block curl <br>
-&#9744; table collection <br>
-&#9744; js 에서 import 'bootstrap' 왜 하는 지 알아볼 것 <br>
+- &#9745; fix css <br>
+- &#9745; finish login, register (flash, check before save(regex)) <br>
+- &#9745; check mongoose API (path, virtual, method, static) <br>
+- &#9745; passport serialize, deserialize 확인할 것 <br>
+- &#9745; append facebook, Google, naver auth <br>
+  - &#9745; naver
+  - &#9745; Google
+  - &#9745; Facebook
+- &#9744; loginForm email, password 공백 시 submit 차단
+- &#9744; webpack split 끝낼 것 ( error)
+- &#9744; user update 끝낼 것
+- &#9744; block curl <br>
+- &#9744; table collection <br>
+- &#9744; js 에서 import 'bootstrap' 왜 하는 지 알아볼 것 <br>
 
 <hr>
+
+## 19/4/29
+
+- finish passport naver, google, facebook
+- loginForm.js : loginForm form check before submit
+- webpack multiple entry error!!
+  - to do fix!
 
 ## 19/4/28
 

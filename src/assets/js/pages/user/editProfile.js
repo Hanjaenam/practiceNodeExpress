@@ -1,4 +1,5 @@
 import 'assets/scss/pages/user/editProfile.scss';
+import 'assets/js/partials/loginForm';
 
 const profilePhoto = document.querySelector('.profile-photo');
 if (profilePhoto) {

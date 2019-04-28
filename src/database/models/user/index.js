@@ -17,6 +17,8 @@ UserSchema.static({
   ...statics,
 });
 
+UserSchema.path('age').validate(validators.age);
+UserSchema.path('birthday').validate(validators.birthday);
 UserSchema.path('email').validate(validators.email);
 UserSchema.path('hashedPassword').validate(validators.password);
 UserSchema.path('phoneNumber').validate(validators.phoneNumber);

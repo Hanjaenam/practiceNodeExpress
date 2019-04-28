@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_PATH=src nodemon --exec babel-node src/app.js",
-    "startd-win": "cross-env nodemon --exec babel-node src/app.js",
+    "start-win": "cross-env NODE_PATH=src nodemon --exec babel-node src/app.js",
     "build": "WEBPACK_ENV=development webpack --w",
     "build-win": "cross-env WEBPACK_ENV=development webpack --w"
   },
@@ -28,7 +28,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "nodemon": "^1.18.10",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
@@ -54,6 +54,9 @@
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "passport-naver": "^1.0.6",
     "popper.js": "^1.15.0",

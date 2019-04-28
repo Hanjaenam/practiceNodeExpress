@@ -4,7 +4,7 @@ import loginCB from './loginCallback';
 import registerCB from './registerCallback';
 
 passport.use(
-  'local-register',
+  'local-login',
   new LocalStrategy(
     {
       usernameField: 'email',
@@ -16,7 +16,7 @@ passport.use(
 );
 
 passport.use(
-  'local-login',
+  'local-register',
   new LocalStrategy(
     {
       usernameField: 'email',

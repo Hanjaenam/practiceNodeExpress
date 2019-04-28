@@ -24,7 +24,22 @@ export const postRegister = passport.authenticate('local-register', {
   successRedirect: routes.home,
   failureFlash: true,
 });
+// PASSPORT OAUTH
+// naver
 export const getNaverLogin = passport.authenticate('naver');
 export const getNaverCallback = passport.authenticate('naver', {
+  successRedirect: routes.home,
+  failureRedirect: routes.makeRedirectPath(routes.auth, routes.logIn),
+});
+// google
+export const getGoogleLogin = passport.authenticate('google', { scope: ['profile', 'email'] });
+export const getGoogleCallback = passport.authenticate('google', {
+  successRedirect: routes.home,
+  failureRedirect: routes.makeRedirectPath(routes.auth, routes.logIn),
+});
+// facebook
+export const getFacebookLogin = passport.authenticate('facebook');
+export const getFacebookCallback = passport.authenticate('facebook', {
+  successRedirect: routes.home,
   failureRedirect: routes.makeRedirectPath(routes.auth, routes.logIn),
 });

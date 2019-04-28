@@ -42,8 +42,4 @@ app.use(routes.home, rootRouter);
 app.use(routes.auth, authRouter);
 app.use(routes.user, userRouter);
 
-app.print = () => {
-  console.log(2);
-};
-
 export default app;

@@ -1,21 +1,20 @@
 import User from 'database/models/user';
 
 export default async (_, __, profile, done) => {
-  // username 가져올 것.
   const {
-    _json: { email, id, age, birthday },
+    id,
+    _json: { email, name },
   } = profile;
   try {
     const user = await User.findOne({ email });
     if (user) {
-      user.naverId = id;
+      user.googleId = id;
       return done(null, user);
     }
     const newUser = await User.create({
       email,
-      naverId: id,
-      birthday: birthday.split('-'),
-      age: age.substr(0, 2),
+      googleId: id,
+      username: name,
     });
     return done(null, newUser);
   } catch (err) {

@@ -15,7 +15,7 @@ const OUTPUT_DIR = path.resolve(__dirname, 'src', 'dist');
 
 module.exports = readFiles(SEARCH_FILE_PATH).then(entry => {
   const config = {
-    entry,
+    entry: SEARCH_FILE_PATH,
     mode: MODE,
     devtool: 'inline-source-map',
     output: {
@@ -90,12 +90,30 @@ module.exports = readFiles(SEARCH_FILE_PATH).then(entry => {
       minimizer: [new TerserJSPlugin(), new OptimizeCssAssetsPlugin()],
 
       splitChunks: {
+        chunks: 'async',
+        minSize: 30000,
+        maxSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 3,
+        automaticNameDelimiter: '~',
+        name: true,
         cacheGroups: {
+          vendors: {
+            filename: '[name].js',
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+          },
           styles: {
             name: 'styles',
             test: /\.css$/,
             chunks: 'all',
             enforce: true,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
           },
         },
       },

@@ -1,3 +1,5 @@
 @import '../mixins/socialLoginBtn.scss';
 
 @include socialLoginBtn(n, rgb(30, 200, 0), rgb(10, 180, 0));
+@include socialLoginBtn(g, rgb(220, 78, 65), rgb(200, 58, 45));
+@include socialLoginBtn(f, rgb(59, 89, 152), rgb(39, 69, 132));

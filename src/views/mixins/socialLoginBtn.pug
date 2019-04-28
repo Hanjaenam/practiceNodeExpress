@@ -1,4 +1,4 @@
 mixin socialLoginBtn(title, inputValue, oauthType)
-  .form-group.rounded.social-login(class=title)
-    span.title=title
+  .form-group.rounded.social-login.mb-2(class=title)
+    span.title(class=`${title==='g'?'fab fa-google':''} ${title==='f'?'fab fa-facebook-f':''}`)=title==='n'?title:''
     a(role="button" href=routes.makeRedirectPath(routes.auth, routes[oauthType])).btn.form-control=inputValue

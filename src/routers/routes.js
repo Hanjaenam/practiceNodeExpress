@@ -4,11 +4,11 @@ const AUTH = '/auth';
 const LOG_IN = '/logIn';
 const REGISTER = '/register';
 const NAVER = '/naver';
-const GITHUB = '/github';
 const GOOGLE = '/google';
+const FACEBOOK = '/facebook';
 const NAVER_CALLBACK = '/naver/callback';
-const GITHUB_CALLBACK = '/github/callback';
 const GOOGLE_CALLBACK = '/google/callback';
+const FACEBOOK_CALLBACK = '/facebook/callback';
 // user
 const USER = '/user';
 const EDIT_PROFILE = '/editProfile';
@@ -20,11 +20,11 @@ const routes = {
   logIn: LOG_IN,
   register: REGISTER,
   naver: NAVER,
-  github: GITHUB,
   google: GOOGLE,
+  facebook: FACEBOOK,
   naverCallback: NAVER_CALLBACK,
-  githubCallback: GITHUB_CALLBACK,
   googleCallback: GOOGLE_CALLBACK,
+  facebookCallback: FACEBOOK_CALLBACK,
   // user
   user: USER,
   editProfile: EDIT_PROFILE,

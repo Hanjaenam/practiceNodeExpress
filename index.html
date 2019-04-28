@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test">
+      <h1>test</h1>
+    </div>
+    <script>
+      // Get a reference to the element in which we want to insert a new node
+      var parentElement = document.getElementById('test');
+      // Get a reference to the first child
+      var theFirstChild = parentElement.firstChild;
+
+      // Create a new element
+      var newElement = document.createElement('div');
+      newElement.append('insert');
+
+      // Insert the new element before the first child
+      parentElement.after(newElement);
+    </script>
+  </body>
+</html>

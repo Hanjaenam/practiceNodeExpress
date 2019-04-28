@@ -10,31 +10,50 @@ export default new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
-    unique: true,
+    required() {
+      return this.facebookId === undefined && this.phoneNumber === undefined;
+    },
+  },
+  isMan: {
+    type: Boolean,
+  },
+  age: {
+    type: String,
+  },
+  birthday: {
+    type: [String],
+    // required: false,
   },
   hashedPassword: {
     type: String,
     required() {
-      return this.naverId === undefined;
+      const isLocalId =
+        this.naverId === undefined && this.googleId === undefined && this.facebookId === undefined;
+      return isLocalId;
     },
   },
   salt: {
     type: String,
     required() {
-      return this.naverId === undefined;
+      const isLocalId =
+        this.naverId === undefined && this.googleId === undefined && this.facebookId === undefined;
+      return isLocalId;
     },
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
   },
   phoneNumber: {
     type: String,
-    index: 'hashed',
+    required() {
+      return this.facebookId === undefined && this.email === undefined;
+    },
     unique: true,
   },
   naverId: {
+    type: Number,
+  },
+  googleId: {
+    type: Number,
+  },
+  facebookId: {
     type: Number,
   },
 });
