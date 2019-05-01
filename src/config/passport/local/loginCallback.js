@@ -15,7 +15,7 @@ export default (req, email, password, done) => {
       return done(
         null,
         false,
-        req.flash('message', 'please naver login instead of local login'),
+        req.flash('message', 'NAVER / GOOGLE / FACEBOOK LOGIN PLEASE INSTEAD OF LOCAL LOGIN'),
         req.flash('errorType', 'not allow local login')
       );
     }

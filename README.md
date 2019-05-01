@@ -1,6 +1,29 @@
-# practice node express
+# Community Site Project ( user, table(+text, +photo) )
 
 ## TO DO
+
+### important
+
+- &#9744; logout 기능
+- &#9744; user update 끝낼 것
+- &#9744; bootstrap codeSplitting (scss mixin사용할 때 중첩으로 빌드되는 bootstrap 라이브러리 -> 불필요한 중복 빌드)
+- &#9744; DB - tabel colletion
+
+### append
+
+- &#9744; block curl
+- &#9744; api ( + authorization header )
+
+<hr>
+
+## 19/5/1
+
+- passport login 이후 username, email(필수 정보) 입력 페이지
+- login, 필수정보 입력페이지 input value 공백 submit 차단 javacsript
+
+<hr>
+
+## April - what is completed
 
 - &#9745; fix css <br>
 - &#9745; finish login, register (flash, check before save(regex)) <br>
@@ -10,12 +33,9 @@
   - &#9745; naver
   - &#9745; Google
   - &#9745; Facebook
-- &#9744; loginForm email, password 공백 시 submit 차단
-- &#9744; webpack split 끝낼 것 ( error)
-- &#9744; user update 끝낼 것
-- &#9744; block curl <br>
-- &#9744; table collection <br>
-- &#9744; js 에서 import 'bootstrap' 왜 하는 지 알아볼 것 <br>
+- &#9745; webpack setting (error)
+- &#9745; loginForm email, password 공백 시 submit 차단
+- &#9745; passport login 이후 username, email(필수 정보) 입력 페이지
 
 <hr>
 

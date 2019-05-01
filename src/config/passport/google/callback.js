@@ -3,7 +3,7 @@ import User from 'database/models/user';
 export default async (_, __, profile, done) => {
   const {
     id,
-    _json: { email, name },
+    _json: { email },
   } = profile;
   try {
     const user = await User.findOne({ email });
@@ -14,7 +14,6 @@ export default async (_, __, profile, done) => {
     const newUser = await User.create({
       email,
       googleId: id,
-      username: name,
     });
     return done(null, newUser);
   } catch (err) {

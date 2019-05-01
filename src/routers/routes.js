@@ -3,6 +3,7 @@ const HOME = '/';
 const AUTH = '/auth';
 const LOG_IN = '/logIn';
 const REGISTER = '/register';
+const CHECK_REQUIRED_DATA = '/checkData';
 const NAVER = '/naver';
 const GOOGLE = '/google';
 const FACEBOOK = '/facebook';
@@ -19,6 +20,7 @@ const routes = {
   auth: AUTH,
   logIn: LOG_IN,
   register: REGISTER,
+  checkRequiredData: CHECK_REQUIRED_DATA,
   naver: NAVER,
   google: GOOGLE,
   facebook: FACEBOOK,

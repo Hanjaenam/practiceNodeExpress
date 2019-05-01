@@ -2,7 +2,6 @@ import UserModel from 'database/models/user';
 import mongoose from 'mongoose';
 
 export default (req, email, password, done) => {
-  console.log('register passport');
   UserModel.findOne({ email }, async (err, isExist) => {
     if (err) return done(err);
     if (isExist) {

@@ -21,7 +21,7 @@ export default new mongoose.Schema({
     type: String,
   },
   birthday: {
-    type: [String],
+    type: String,
     // required: false,
   },
   hashedPassword: {

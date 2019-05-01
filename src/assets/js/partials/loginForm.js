@@ -1,22 +1,34 @@
-const emailInput = document.querySelector('.login-form .email-input');
-const passwordInput = document.querySelector('.login-form .password-input');
-const submitInput = document.querySelector('.login-form input[type="submit"]');
+import { makeTextDanger } from 'assets/js/utils';
 
-const textDanger = document.createElement('small');
-textDanger.classList.add('form-text', 'text-danter');
+const loginForm = document.querySelector('.login-form form');
+const email = loginForm.querySelector('input#email');
+const password = loginForm.querySelector('input#password');
+const submitInput = loginForm.querySelector('input[type="submit"]');
 
-submitInput.addEventListener('submit', e => {
-  if (emailInput === '') {
-    textDanger.setAttribute('id', 'email-error');
-    textDanger.appendChild('email is required');
-    emailInput.after(textDanger);
-    return;
+const isValid = () => {
+  if (email.value === '') {
+    if (loginForm.querySelector('.text-danger.email-required')) return false;
+    const textDanger = makeTextDanger({
+      id: 'email-error',
+      text: 'email is required',
+    });
+    email.after(textDanger);
+    return false;
   }
-  if (passwordInput === '') {
-    textDanger.setAttribute('id', 'password-error');
-    textDanger.appendChild('password is required');
-    passwordInput.after(textDanger);
-    return;
+  if (password.value === '') {
+    if (loginForm.querySelector('.text-danger.password-required')) return false;
+    const textDanger = makeTextDanger({
+      id: 'password-error',
+      text: 'password is required',
+    });
+    password.after(textDanger);
+    return false;
   }
-  submitInput.submit();
-});
+  return true;
+};
+const handleSubmit = e => {
+  e.preventDefault();
+  if (!isValid()) return;
+  loginForm.submit();
+};
+submitInput.addEventListener('click', handleSubmit);

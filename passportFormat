@@ -1,0 +1,49 @@
+facebook
+{ id: '111745866700647',
+  username: undefined,
+  displayName: '한재남',
+  name:
+   { familyName: undefined,
+     givenName: undefined,
+     middleName: undefined },
+  gender: undefined,
+  profileUrl: undefined,
+  provider: 'facebook',
+  _raw: '{"name":"\\ud55c\\uc7ac\\ub0a8","id":"111745866700647"}',
+  _json: { name: '한재남', id: '111745866700647' } }
+
+
+naver
+{ provider: 'naver',
+  id: '15535099',
+  displayName: 'hanjn****',
+  emails: [ { value: 'hanjn2842@naver.com' } ],
+  _json:
+   { email: 'hanjn2842@naver.com',
+     nickname: 'hanjn****',
+     profile_image: 'https://ssl.pstatic.net/static/pwe/address/img_profile.png',
+     age: '20-29',
+     birthday: '12-10',
+     id: '15535099' } }
+
+google
+{ id: '115676897833564994246',
+  displayName: '한재남',
+  name: { familyName: '한', givenName: '재남' },
+  emails: [ { value: 'Hanjn2842@naver.com', verified: true } ],
+  photos:
+   [ { value:
+        'https://lh3.googleusercontent.com/-ar8e8Q3z9Y0/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfnQxBHTpybgBW7dCgBEkNgjaiN7w/mo/photo.jpg' } ],
+  provider: 'google',
+  _raw:
+   '{\n  "sub": "115676897833564994246",\n  "name": "한재남",\n  "given_name": "재남",\n  "family_name": "한",\n  "picture": "https://lh3.googleusercontent.com/-ar8e8Q3z9Y0/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfnQxBHTpybgBW7dCgBEkNgjaiN7w/mo/photo.jpg",\n  "email": "Hanjn2842@naver.com",\n  "email_verified": true,\n  "locale": "ko"\n}',
+  _json:
+   { sub: '115676897833564994246',
+     name: '한재남',
+     given_name: '재남',
+     family_name: '한',
+     picture:
+      'https://lh3.googleusercontent.com/-ar8e8Q3z9Y0/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rfnQxBHTpybgBW7dCgBEkNgjaiN7w/mo/photo.jpg',
+     email: 'Hanjn2842@naver.com',
+     email_verified: true,
+     locale: 'ko' } }

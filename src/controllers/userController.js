@@ -1,11 +1,9 @@
 import User from 'database/models/user';
 
 export const getEditProfile = async (req, res, next) => {
-  const fieldArr = ['facebookId', 'googleId', 'naverId', 'email', 'phoneNumber'];
-  const findedField = fieldArr.find(field => req.user[field] !== undefined);
   try {
-    const user = await User.findOne({ [findedField]: req.user[findedField] });
-    res.render('pages/user/editProfile', { user });
+    const loggedUser = await User.findOne({ email: req.user.email });
+    res.render('pages/user/editProfile', { loggedUser });
   } catch (e) {
     // error page 만들 것.
     res.redirect('pages/user/editProfile');
@@ -18,8 +16,8 @@ export const postEditProfile = async (req, res, next) => {
     const loggedUser = await User.findOne({ email: req.user.email });
     loggedUser.profilePhotoUrl = filename;
     loggedUser.save();
+    res.render('pages/user/editProfile', { loggedUser });
   } catch (e) {
     res.redirect('pages/user/editProfile');
   }
-  res.redirect('pages/user/editProfile');
 };

@@ -1,0 +1,14 @@
+extends /layouts/template
+include /mixins/formGroup
+
+block head
+  link(rel="stylesheet" href="/dist/css/checkRequiredData.css")
+block main
+  .checkData-form.container.mt-5.rounded.shadow
+    h3.help.pt-5.pb-2 email과 username을 설정해주세요
+    form.p-4(action=`${routes.makeRedirectPath(routes.auth,routes.checkRequiredData)}` method="POST")
+      +formGroup({type:text, label:"email"})(id="email" placeholder="Email" readOnly=`${user.email?true:false}` value=`${user.email?user.email:''}`)
+      +formGroup({type:text, label:"username"})(id="username" placeholder="Username")
+      .form-group.mb-5
+        input(type="submit" value="OK").btn.btn-primary.form-control
+  script(src="/dist/js/checkRequiredData.js")

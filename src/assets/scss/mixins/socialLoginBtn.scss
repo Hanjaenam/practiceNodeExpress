@@ -8,7 +8,7 @@
     align-items: center;
     transition: background-color 0.1s ease-in-out;
     cursor: pointer;
-    span {
+    .title {
       height: 70%;
       color: #fff;
       font-weight: bold;
@@ -21,13 +21,10 @@
       align-items: center;
     }
     a {
-      background-color: transparent;
+      // background-color: transparent;
+      color: #fff;
       font-weight: bold;
       border: none;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     &:hover {
       background-color: $hoverbackgroundColor;

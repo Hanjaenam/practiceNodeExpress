@@ -28,7 +28,7 @@ body {
   .register-form {
     width: 60%;
   }
-  .logIn-form {
+  .login-form {
     width: 60%;
   }
 }
@@ -36,7 +36,22 @@ body {
   .register-form {
     width: 50%;
   }
-  .logIn-form {
+  .login-form {
     width: 50%;
+  }
+}
+
+.social-login {
+  a {
+    @include media-breakpoint-down(sm) {
+      span {
+        display: none;
+      }
+    }
+    span {
+      color: #fff;
+      font-weight: bold;
+      border: none;
+    }
   }
 }

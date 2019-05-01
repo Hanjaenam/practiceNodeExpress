@@ -8,10 +8,8 @@ export const age = {
 };
 export const birthday = {
   validator(value) {
-    const checkArrayLength = value.length === 2; // [12][10]
-    const checkIndexOne = value[0] > 0 && value[1] < 13;
-    const checkIndexTwo = value[0] > 0 && value[1] < 32; // 윤년 계산할 것.
-    return checkArrayLength && checkIndexOne && checkIndexTwo;
+    const regex = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+    return regex.test(value);
   },
   messsage(props) {
     return `${props} is not properly birthday`;
