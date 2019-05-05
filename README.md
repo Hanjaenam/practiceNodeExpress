@@ -6,8 +6,12 @@
 
 - &#9745; logout 기능
 - &#9744; user update 끝낼 것
-  - &#9744; axios API
-  - &#9744; thumbnail 2번 이상 변경
+  - &#9745; axios API
+  - &#9745; thumbnail 2번 이상 변경
+  - &#9745; thumbnail update
+  - &#9744; username, password, etc ...
+- &#9744; local 회원가입 email 인증
+- &#9744; local <-> passport email 확인
 - &#9744; bootstrap codeSplitting (scss mixin사용할 때 중첩으로 빌드되는 bootstrap 라이브러리 -> 불필요한 중복 빌드)
 - &#9744; DB - tabel colletion
 

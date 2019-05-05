@@ -1,6 +1,7 @@
 import 'assets/scss/pages/auth/checkRequiredData.scss';
-import { makeTextDanger } from 'assets/js/utils';
+import { createTextDanger } from 'assets/js/utils';
 
+const header = document.querySelector('body header');
 const checkDataForm = document.querySelector('.checkData-form form');
 const submitInput = checkDataForm.querySelector('input[type="submit"]');
 const email = checkDataForm.querySelector('#email');
@@ -16,7 +17,7 @@ const setAutoFocus = () => {
 const isValid = () => {
   if (email.value === '') {
     if (checkDataForm.querySelector('.text-danger.email-required')) return false;
-    const textDanger = makeTextDanger({
+    const textDanger = createTextDanger({
       id: 'email-error',
       class: 'email-required',
       text: 'email is required',
@@ -26,7 +27,7 @@ const isValid = () => {
   }
   if (username.value === '') {
     if (checkDataForm.querySelector('.text-danger.username-required')) return false;
-    const textDanger = makeTextDanger({
+    const textDanger = createTextDanger({
       id: 'username-error',
       class: 'username-required',
       text: 'username is required',
@@ -41,7 +42,11 @@ const handleSubmit = e => {
   if (!isValid()) return;
   checkDataForm.submit();
 };
+const setDisabledHeaderBtn = () => {
+  header.querySelectorAll('.btn').forEach(btn => btn.classList.add('disabled'));
+};
 const init = () => {
+  setDisabledHeaderBtn();
   setAutoFocus();
   submitInput.addEventListener('click', handleSubmit);
 };

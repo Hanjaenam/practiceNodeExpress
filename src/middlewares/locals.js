@@ -4,7 +4,6 @@ import multer from 'multer';
 import dotenv from 'dotenv';
 
 dotenv.config();
-
 const multerProfilePhoto = multer({
   dest: path.resolve(process.env.DIST_PATH, 'user', 'profile_photo'),
 });

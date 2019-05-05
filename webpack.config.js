@@ -8,7 +8,7 @@ const webpack = require('webpack');
 const readFiles = require('./src/utils/readFiles');
 
 const MODE = process.env.WEBPACK_ENV;
-const devMode = MODE === 'development';
+const isDevMode = MODE === 'development';
 const ENTRY_PATH = path.resolve(__dirname, 'src', 'assets', 'js');
 const SEARCH_FILE_PATH = path.resolve(ENTRY_PATH, 'pages');
 const OUTPUT_DIR = path.resolve(__dirname, 'src', 'dist');
@@ -51,7 +51,7 @@ module.exports = readFiles(SEARCH_FILE_PATH).then(res => ({
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: process.env.NODE_ENV === 'development',
+              hmr: isDevMode,
             },
           },
           {
@@ -74,8 +74,8 @@ module.exports = readFiles(SEARCH_FILE_PATH).then(res => ({
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: devMode ? 'css/[name].css' : 'css/[name].[hash].css',
-      chunkFilename: devMode ? 'css/[id].css' : 'css/[id].[hash].css',
+      filename: isDevMode ? 'css/[name].css' : 'css/[name].[hash].css',
+      chunkFilename: isDevMode ? 'css/[id].css' : 'css/[id].[hash].css',
     }),
     new webpack.ProvidePlugin({
       jQuery: 'jquery',
@@ -88,7 +88,7 @@ module.exports = readFiles(SEARCH_FILE_PATH).then(res => ({
     // }),
   ],
   optimization: {
-    minimize: !devMode,
+    minimize: !isDevMode,
     minimizer: [new TerserJSPlugin(), new OptimizeCssAssetsPlugin()],
 
     splitChunks: {

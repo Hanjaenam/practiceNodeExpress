@@ -1,21 +1,25 @@
 extends /layouts/template
+include /mixins/loading
 
 block head
   link(rel="stylesheet" href="/dist/css/editProfile.css")
 block main
   .container.edit-profile
-    form.p-5(method="POST" enctype="multipart/form-data" action="")
-      .form-group.profile-photo.w-50.m-auto
-        img.img-fluid.thumbnail.w-100(src=`${profilePhotoPath}`)
-        .box
+    form.p-5(method="POST" enctype="multipart/form-data" action=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`)
+      .form-group.profile-photo.m-auto
+        img.img-fluid.thumbnail.w-100.h-100.rounded(src=`${profilePhotoPath}`)
+        .box.rounded
           label.d-flex.justify-content-center.align-items-center(for="profile-photo_input") 
             p.text-center.d-inline-block change profile photo
           input.form-control-file#profile-photo_input(type="file" accept="image/*" name="profilePhotoUrl")
+        +loading()(class="position-absolute hide")
+        i.far.fa-check-circle.text-success.success-icon.fa-5x.hide
+        input.change-btn.hide.btn.btn-primary(type="button" value="Change")
       .form-group.row.w-75.mx-auto.mt-5
         input.form-control-plaintext.col-sm-10.username(type="text" aria-describedby="username-help" readonly value=`${user.username ? user.username : 'no username'}`)
         .col-sm-2.p-0
           input.btn.btn-primary.w-100(type="submit" value="OK")
-        small#username-help.form-text.text-muted 이름과, 프로필 사진을 변경한 후, OK를 눌르면 이름이 변경됩니다.
+        small#username-help.form-text.text-muted Change your username if click Ok
       .form-group.w-75.mx-auto.mt-5
         button.btn.btn-primary.btn-block(type="button") change password
   script(src="/dist/js/editProfile.js")

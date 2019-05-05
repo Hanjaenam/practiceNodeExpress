@@ -1,4 +1,4 @@
-import { makeTextDanger } from 'assets/js/utils';
+import { createTextDanger } from 'assets/js/utils';
 
 const loginForm = document.querySelector('.login-form form');
 const email = loginForm.querySelector('input#email');
@@ -8,7 +8,7 @@ const submitInput = loginForm.querySelector('input[type="submit"]');
 const isValid = () => {
   if (email.value === '') {
     if (loginForm.querySelector('.text-danger.email-required')) return false;
-    const textDanger = makeTextDanger({
+    const textDanger = createTextDanger({
       id: 'email-error',
       text: 'email is required',
     });
@@ -17,7 +17,7 @@ const isValid = () => {
   }
   if (password.value === '') {
     if (loginForm.querySelector('.text-danger.password-required')) return false;
-    const textDanger = makeTextDanger({
+    const textDanger = createTextDanger({
       id: 'password-error',
       text: 'password is required',
     });

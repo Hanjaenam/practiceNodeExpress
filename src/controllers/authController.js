@@ -1,4 +1,3 @@
-// import passport from 'passport';
 import passport from 'passport';
 import routes from 'routers/routes';
 import UserModel from 'database/models/user';
@@ -64,8 +63,8 @@ export const postCheckRequiredData = async (req, res) => {
       user.email = email;
     }
     user.save();
-    user.redirect(routes.home);
+    res.redirect(routes.home);
   } catch (error) {
-    res.redner('pages/auth/checkRequiredData', { error });
+    res.render('pages/auth/checkRequiredData', { error });
   }
 };

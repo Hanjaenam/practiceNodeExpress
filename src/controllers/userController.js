@@ -3,7 +3,7 @@ import routes from 'routers/routes';
 
 export const getEditProfile = async (req, res, next) => {
   const profilePhotoPath = req.user.profilePhotoUrl
-    ? `/dist/user/profile_photo${req.user.profilePhotoUrl}`
+    ? `/dist/user/profile_photo/${req.user.profilePhotoUrl}`
     : '/dist/user/profile_photo/basic.png';
   res.render('pages/user/editProfile', {
     profilePhotoPath,
@@ -11,14 +11,18 @@ export const getEditProfile = async (req, res, next) => {
 };
 
 export const postEditProfile = async (req, res, next) => {
-  const { file } = req;
+  const {
+    file: { filename },
+  } = req;
   try {
-    const loggedUser = await User.findOne({ email: req.user.email });
-    loggedUser.profilePhotoUrl = file.filename;
-    loggedUser.save();
-    res.render('pages/user/editProfile', { loggedUser });
+    const user = await User.findOne({ email: req.user.email });
+    user.profilePhotoUrl = filename;
+    req.user.profilePhotoUrl = filename;
+    res.status(200);
   } catch (e) {
-    res.redirect(routes.makeRedirectPath(routes.user, routes.editProfile));
+    res.status(400);
+  } finally {
+    res.end();
   }
 };
 

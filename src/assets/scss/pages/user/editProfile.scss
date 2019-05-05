@@ -1,3 +1,8 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '../../mixins/loading.scss';
+
 @keyframes appearUp {
   0% {
     opacity: 0;
@@ -7,7 +12,19 @@
 
 .edit-profile {
   .profile-photo {
+    @include media-breakpoint-up(xl) {
+      width: 400px;
+      height: 400px;
+    }
+    width: 300px;
+    height: 300px;
+
     position: relative;
+    .thumbnail {
+      border: none;
+      all: unset;
+      background: white;
+    }
     .box {
       text-align: center;
       cursor: pointer;
@@ -26,6 +43,7 @@
         p {
           font-size: 3vw;
           color: white;
+          user-select: none;
         }
       }
       input[type='file'] {
@@ -41,15 +59,41 @@
       &:hover {
         opacity: 1;
       }
+      &.focused ~ .change-btn {
+        opacity: 1;
+        visibility: visible;
+        bottom: -10px;
+      }
     }
     .change-btn {
+      text-transform: uppercase;
       position: absolute;
-      opacity: 1;
-      bottom: -5px;
+      visibility: hidden;
+      opacity: 0;
+      bottom: -20px;
       left: 50%;
       transform: translateX(-50%);
-      animation: appearUp 0.5s ease-in-out;
+      transition: all 1s;
+      &.focused {
+        opacity: 1;
+        visibility: visible;
+        bottom: -10px;
+      }
+    }
+    .success-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 1s;
+      pointer-events: none;
+      &.hide {
+        opacity: 0;
+      }
+      &.show {
+        opacity: 1;
+      }
     }
   }
 }
-//https://bloodguy.tistory.com/895 --> thumbnail 미리보기 js
+@include loading(rgba(0, 0, 0, 0.2), 5%, 5%);
