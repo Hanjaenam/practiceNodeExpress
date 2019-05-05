@@ -1,14 +1,19 @@
 import path from 'path';
 import routes from 'routers/routes';
 import multer from 'multer';
+import dotenv from 'dotenv';
 
-const multerProfilePhoto = multer({ dest: 'src/dist/user/profile_photo' });
+dotenv.config();
+
+const multerProfilePhoto = multer({
+  dest: path.resolve(process.env.DIST_PATH, 'user', 'profile_photo'),
+});
 
 export default (req, res, next) => {
   res.locals.siteName = 'JaeNam';
   res.locals.routes = routes;
   res.locals.basedir = path.resolve(process.env.NODE_PATH, 'views');
-  res.locals.user = req.user || process.env.TEST_SCSS ? 'dev' : null;
+  res.locals.user = req.user || (process.env.TEST_SCSS === '1' ? 'dev' : null);
   return next();
 };
 
@@ -23,3 +28,10 @@ export const onlyAfterAuth = (req, res, next) => {
 };
 
 export const uploadProfilePhoto = multerProfilePhoto.single('profilePhotoUrl');
+
+export const checkRequiredData = (req, res, next) => {
+  if (req.user.username === undefined || req.user.email === undefined) {
+    return next();
+  }
+  res.redirect(routes.home);
+};

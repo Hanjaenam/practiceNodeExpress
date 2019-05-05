@@ -30,16 +30,19 @@ export const postRegister = passport.authenticate('local-register', {
 // naver
 export const getNaverLogin = passport.authenticate('naver');
 export const getNaverCallback = passport.authenticate('naver', {
+  successRedirect: routes.makeRedirectPath(routes.auth, routes.checkRequiredData),
   failureRedirect: routes.makeRedirectPath(routes.auth, routes.logIn),
 });
 // google
 export const getGoogleLogin = passport.authenticate('google', { scope: ['profile', 'email'] });
 export const getGoogleCallback = passport.authenticate('google', {
+  successRedirect: routes.makeRedirectPath(routes.auth, routes.checkRequiredData),
   failureRedirect: routes.makeRedirectPath(routes.auth, routes.logIn),
 });
 // facebook
 export const getFacebookLogin = passport.authenticate('facebook');
 export const getFacebookCallback = passport.authenticate('facebook', {
+  successRedirect: routes.makeRedirectPath(routes.auth, routes.checkRequiredData),
   failureRedirect: routes.makeRedirectPath(routes.auth, routes.logIn),
 });
 // check username, email
@@ -52,19 +55,17 @@ export const postCheckRequiredData = async (req, res) => {
   const {
     body: { username, email },
   } = req;
-  const usedId = ['facebookId', 'naverId', 'googleId'].find(id => {
-    if (req.user[id] !== undefined) return id;
-  });
   try {
     const user = await UserModel.findById(req.user._id);
-    user.username = username;
-    if (usedId === 'facebookId') {
+    if (req.user.username === undefined) {
+      user.username = username;
+    }
+    if (req.user.email === undefined) {
       user.email = email;
     }
     user.save();
-    res.redirect(routes.home);
+    user.redirect(routes.home);
   } catch (error) {
-    console.log(error);
-    res.render('pages/auth/checkRequiredData', { error });
+    res.redner('pages/auth/checkRequiredData', { error });
   }
 };

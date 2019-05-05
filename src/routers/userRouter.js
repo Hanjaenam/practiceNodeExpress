@@ -1,10 +1,11 @@
 import express from 'express';
 import { onlyAfterAuth, uploadProfilePhoto } from 'middlewares/locals';
-import { getEditProfile, postEditProfile } from 'controllers/userController';
+import { getEditProfile, postEditProfile, getLogOut } from 'controllers/userController';
 import routes from './routes';
 
 const userRouter = express.Router();
 userRouter.get(routes.editProfile, onlyAfterAuth, getEditProfile);
 userRouter.post(routes.editProfile, onlyAfterAuth, uploadProfilePhoto, postEditProfile);
+userRouter.get(routes.logOut, getLogOut);
 
 export default userRouter;

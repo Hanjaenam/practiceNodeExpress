@@ -1,7 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-// @import '~bootstrap/scss/functions';
-// @import '~bootstrap/scss/variables';
-// @import '~bootstrap/scss/mixins';
 
 .btn {
   &:focus {
@@ -24,34 +21,3 @@ body {
 }
 
 // bootstrap css 중첩을 막기위해 bootstrap 변수 혹은 mixin을 사용하려면 여기서 사용하거나 import 할 것.
-@include media-breakpoint-up(lg) {
-  .register-form {
-    width: 60%;
-  }
-  .login-form {
-    width: 60%;
-  }
-}
-@include media-breakpoint-up(xl) {
-  .register-form {
-    width: 50%;
-  }
-  .login-form {
-    width: 50%;
-  }
-}
-
-.social-login {
-  a {
-    @include media-breakpoint-down(sm) {
-      span {
-        display: none;
-      }
-    }
-    span {
-      color: #fff;
-      font-weight: bold;
-      border: none;
-    }
-  }
-}

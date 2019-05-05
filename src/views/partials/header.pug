@@ -3,6 +3,7 @@
     a.btn.btn-outline-light(role="button" href=`${routes.home}`) Home
   div
     if user
-      a.btn.btn-outline-light(role="button" href=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`) Edit Profile
+      a.btn.btn-outline-light.mr-1(role="button" href=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`) Edit Profile
+      a.btn.btn-outline-light(role="button" href=`${routes.makeRedirectPath(routes.user, routes.logOut)}`) Log Out
     else
       a.btn.btn-outline-light(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.logIn)}`) Login

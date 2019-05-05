@@ -13,6 +13,7 @@ const FACEBOOK_CALLBACK = '/facebook/callback';
 // user
 const USER = '/user';
 const EDIT_PROFILE = '/editProfile';
+const LOG_OUT = '/logout';
 
 const routes = {
   home: HOME,
@@ -30,6 +31,7 @@ const routes = {
   // user
   user: USER,
   editProfile: EDIT_PROFILE,
+  logOut: LOG_OUT,
   // util
   makeRedirectPath: (...paths) => {
     let fullPath = '';

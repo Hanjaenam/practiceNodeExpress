@@ -1,3 +1,3 @@
-export { default } from 'config/connect/server';
-export { default as dbConnection } from 'config/connect/database';
+export { default } from 'config/server';
+export { default as dbConnection } from 'config/connectDB';
 import 'config/passport';

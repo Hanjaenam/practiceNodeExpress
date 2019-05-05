@@ -6,7 +6,7 @@ block main
   .container.edit-profile
     form.p-5(method="POST" enctype="multipart/form-data" action="")
       .form-group.profile-photo.w-50.m-auto
-        img.img-fluid.thumbnail.w-100(src=`/dist/user/profile_photo/${test ? test : 'basic.png'}`)
+        img.img-fluid.thumbnail.w-100(src=`${profilePhotoPath}`)
         .box
           label.d-flex.justify-content-center.align-items-center(for="profile-photo_input") 
             p.text-center.d-inline-block change profile photo

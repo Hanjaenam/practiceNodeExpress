@@ -1,7 +1,15 @@
+@keyframes appearUp {
+  0% {
+    opacity: 0;
+    bottom: -10px;
+  }
+}
+
 .edit-profile {
   .profile-photo {
     position: relative;
     .box {
+      text-align: center;
       cursor: pointer;
       opacity: 0;
       width: 100%;
@@ -33,6 +41,14 @@
       &:hover {
         opacity: 1;
       }
+    }
+    .change-btn {
+      position: absolute;
+      opacity: 1;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: appearUp 0.5s ease-in-out;
     }
   }
 }

@@ -1,5 +1,6 @@
-.register-form.container.mt-5
-  form.shadow.p-4.rounded(action=`${routes.makeRedirectPath(routes.auth,routes.register)}` method="POST")
+.register-form.container.mt-5.rounded.shadow
+  h3.help.pt-5.pb-2 Register
+  form.p-4(action=`${routes.makeRedirectPath(routes.auth,routes.register)}` method="POST")
     .form-group.mb-5
       label(for="email") Email
       input(type="email" placeholder="Email" name="email" aria-describedby="email-help" autofocus).form-control#email

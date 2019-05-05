@@ -14,6 +14,13 @@ export default new mongoose.Schema({
       return this.facebookId === undefined && this.phoneNumber === undefined;
     },
   },
+  phoneNumber: {
+    type: String,
+    required() {
+      return this.facebookId === undefined && this.email === undefined;
+    },
+    unique: true,
+  },
   isMan: {
     type: Boolean,
   },
@@ -39,13 +46,6 @@ export default new mongoose.Schema({
         this.naverId === undefined && this.googleId === undefined && this.facebookId === undefined;
       return isLocalId;
     },
-  },
-  phoneNumber: {
-    type: String,
-    required() {
-      return this.facebookId === undefined && this.email === undefined;
-    },
-    unique: true,
   },
   naverId: {
     type: Number,

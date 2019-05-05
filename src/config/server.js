@@ -7,9 +7,8 @@ import cookieParser from 'cookie-parser';
 import passport from 'passport';
 import flash from 'connect-flash';
 import expressSession from 'express-session';
-import routes from 'routers/routes';
-import { rootRouter, authRouter, userRouter } from 'routers';
-import localsMiddleware from 'middlewares/locals';
+import setRoutes from 'config/routers';
+import setMiddlewares from 'config/middleware';
 
 dotenv.config();
 
@@ -36,10 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(morgan('dev'));
 
-app.use(localsMiddleware);
-
-app.use(routes.home, rootRouter);
-app.use(routes.auth, authRouter);
-app.use(routes.user, userRouter);
+setMiddlewares(app);
+setRoutes(app);
 
 export default app;

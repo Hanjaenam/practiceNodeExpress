@@ -1,19 +1,19 @@
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
-
-.checkData-form {
-  .help {
-    text-align: center;
-  }
-}
 @include media-breakpoint-up(lg) {
-  .checkData-form {
+  .register-form {
     width: 60%;
   }
 }
 @include media-breakpoint-up(xl) {
-  .checkData-form {
+  .register-form {
     width: 50%;
+  }
+}
+
+.register-form {
+  h3.help {
+    text-align: center;
   }
 }
