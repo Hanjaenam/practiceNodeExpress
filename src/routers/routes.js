@@ -13,6 +13,8 @@ const FACEBOOK_CALLBACK = '/facebook/callback';
 // user
 const USER = '/user';
 const EDIT_PROFILE = '/editProfile';
+const EDIT_USERNAME = '/editUsername';
+const EDIT_PASSWORD = '/editPassword';
 const LOG_OUT = '/logout';
 
 const routes = {
@@ -31,6 +33,8 @@ const routes = {
   // user
   user: USER,
   editProfile: EDIT_PROFILE,
+  editUsername: EDIT_USERNAME,
+  editPassword: EDIT_PASSWORD,
   logOut: LOG_OUT,
   // util
   makeRedirectPath: (...paths) => {

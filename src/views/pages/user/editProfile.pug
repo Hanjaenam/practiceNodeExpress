@@ -4,22 +4,71 @@ include /mixins/loading
 block head
   link(rel="stylesheet" href="/dist/css/editProfile.css")
 block main
-  .container.edit-profile
-    form.p-5(method="POST" enctype="multipart/form-data" action=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`)
-      .form-group.profile-photo.m-auto
-        img.img-fluid.thumbnail.w-100.h-100.rounded(src=`${profilePhotoPath}`)
-        .box.rounded
+  .container.rounded.shadow.edit-profile.user
+    form(method="POST" enctype="multipart/form-data" action=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`)
+      .form-group.profile-photo.w-50.h-50
+        img.img-fluid.thumbnail.rounded.w-100.h-100(src=`${profilePhotoPath}`)
+        .box.rounded.w-100.h-100
           label.d-flex.justify-content-center.align-items-center(for="profile-photo_input") 
             p.text-center.d-inline-block change profile photo
           input.form-control-file#profile-photo_input(type="file" accept="image/*" name="profilePhotoUrl")
-        +loading()(class="position-absolute hide")
-        i.far.fa-check-circle.text-success.success-icon.fa-5x.hide
-        input.change-btn.hide.btn.btn-primary(type="button" value="Change")
-      .form-group.row.w-75.mx-auto.mt-5
-        input.form-control-plaintext.col-sm-10.username(type="text" aria-describedby="username-help" readonly value=`${user.username ? user.username : 'no username'}`)
-        .col-sm-2.p-0
-          input.btn.btn-primary.w-100(type="submit" value="OK")
-        small#username-help.form-text.text-muted Change your username if click Ok
-      .form-group.w-75.mx-auto.mt-5
-        button.btn.btn-primary.btn-block(type="button") change password
-  script(src="/dist/js/editProfile.js")
+        //- +loading()
+        //- i.far.fa-check-circle.text-success.success-icon.fa-5x.hide
+        button.change-btn.hide.btn.btn-primary(type="button" disabled) Change
+      .form-group.username.d-flex
+        .flex-grow-1.px-2
+          input.form-control-plaintext(type="text" aria-describedby="username-help" readonly value=`${user.username ? user.username : 'no username'}`)
+          small#username-help.form-text.text-muted Change your username if click Ok
+        div.px-2
+          button.change-btn.btn.btn-primary(type="button" disabled) change
+      .form-group.phoneNumber
+        button.btn.btn-primary.btn-block.change-password(type="button" data-toggle="modal" data-target="#change-phone-number") change PhoneNumber
+      if !(user.naverId || user.googleId || user.facebookId)
+        .form-group.password
+          button.btn.btn-primary.btn-block.change-password(type="button" data-toggle="modal" data-target="#change-password") change password
+  .modal.fade.password-modal#change-password(role="dialog" aria-labelledby="change-password-modal" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered(role="document")
+      .modal-content
+        .modal-header
+          h5.modal-title#change-password-modal change password
+          button.close(type="button" data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") &times;
+        .modal-body
+          .form-group.pre-password
+            label(for="pre-password") 이전 비밀번호
+            input.form-control#pre-password(type="password" placeholder="현재 비밀번호" aria-label="prePassword" aria-describedby="prePasswordHelp" autoFocus=true)
+            small#prePasswordHelp.form-text.text-danger
+          .form-group.change-password
+            label(for="change-password") 바꿀 비밀번호
+            input.form-control#change-password(type="password" placeholder="바꿀 비밀번호" aria-label="changePassword" aria-describedby="changePasswordHelp")
+            small#changePasswordHelp.form-text.text-danger 
+          .form-group.change-password-confirm
+            label(for="change-password-confirm") 확인
+            input.form-control#change-password-confirm(type="password" placeholder="바꿀 비밀번호 확인" aria-label="changePasswordConfirm" aria-describedby="changePasswordConfirmHelp")
+            small#changePasswordConfirmHelp.form-text.text-danger 
+        .modal-footer
+          button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+          button.btn.btn-primary.change-password-btn(type="button") change
+  .modal.fade.phone-number-modal#change-phone-number(tabindex="-1" role="dialog" aria-labelledby="change-phone-number-modal" aria-hidden="true")
+      .modal-dialog.modal-dialog-centered(role="document")
+        .modal-content
+          .modal-header
+            h5.modal-title#change-password-modal change phone number
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+          .modal-body
+            .input-group
+              .input-group-prepend
+                select#inputGroupSelect.custom-select(name="")
+                  option(selected) 010
+                  option(value="1") 011
+                  option(value="2") 017
+                  option(value="3") 019
+              input.form-control(type="text" aria-label="second number")
+              input.form-control(type="text" aria-label="third number")
+          .modal-footer
+            button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+            button.btn.btn-primary.change-phone-number-btn(type="button") change
+  +loading()
+  i.far.fa-check-circle.text-success.success-icon.fa-5x.hide
+  script(src="/dist/js/editProfile.js") 

@@ -1,7 +1,6 @@
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
 @import '../../mixins/loading.scss';
+@import '../../mixins/margin.scss';
+@import '../../mixins/padding.scss';
 
 @keyframes appearUp {
   0% {
@@ -11,89 +10,115 @@
 }
 
 .edit-profile {
-  .profile-photo {
-    @include media-breakpoint-up(xl) {
-      width: 400px;
-      height: 400px;
+  * {
+    text-transform: uppercase;
+  }
+  @include marginY(5);
+  @include padding(5, 3);
+  form {
+    .form-group:not(.profile-photo) {
+      @include paddingY(2);
     }
-    width: 300px;
-    height: 300px;
-
-    position: relative;
-    .thumbnail {
-      border: none;
-      all: unset;
-      background: white;
-    }
-    .box {
-      text-align: center;
-      cursor: pointer;
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.2);
-      position: absolute;
-      top: 0;
-      left: 0;
-      transition: 0.3s ease-in-out;
-      label {
+    .form-group.profile-photo {
+      position: relative;
+      margin: 0 auto;
+      .thumbnail {
+        border: none;
+        background: white;
+      }
+      .box {
+        text-align: center;
         cursor: pointer;
-        width: 100%;
-        height: 100%;
-        p {
-          font-size: 3vw;
-          color: white;
-          user-select: none;
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.3s ease-in-out;
+        label {
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          p {
+            font-size: 3vw;
+            color: white;
+            user-select: none;
+          }
+        }
+        input[type='file'] {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          border: 0;
+        }
+        &:hover {
+          opacity: 1;
+        }
+        &.focused ~ .change-btn {
+          opacity: 1;
+          visibility: visible;
+          bottom: -10px;
         }
       }
-      input[type='file'] {
+      .success-icon {
+        pointer-events: none;
+      }
+      .change-btn {
+        text-transform: uppercase;
         position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-      &:hover {
-        opacity: 1;
-      }
-      &.focused ~ .change-btn {
-        opacity: 1;
-        visibility: visible;
-        bottom: -10px;
-      }
-    }
-    .change-btn {
-      text-transform: uppercase;
-      position: absolute;
-      visibility: hidden;
-      opacity: 0;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: all 1s;
-      &.focused {
-        opacity: 1;
-        visibility: visible;
-        bottom: -10px;
-      }
-    }
-    .success-icon {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: all 1s;
-      pointer-events: none;
-      &.hide {
+        visibility: hidden;
         opacity: 0;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 1s;
+        &.focused {
+          opacity: 1;
+          visibility: visible;
+          bottom: -10px;
+        }
       }
-      &.show {
-        opacity: 1;
+    }
+    .form-group.username {
+      input {
+        text-transform: none;
       }
     }
   }
 }
-@include loading(rgba(0, 0, 0, 0.2), 5%, 5%);
+.modal {
+  .modal-content {
+    .modal-body {
+      small {
+        display: none;
+      }
+    }
+    .success-icon {
+      background-color: rgba(250, 250, 250, 0.6);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
+.success-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+  &.hide {
+    opacity: 0;
+  }
+  &.show {
+    opacity: 1;
+  }
+}
+@include loading();

@@ -1,4 +1,4 @@
-import { createTextDanger } from 'assets/js/utils';
+import { createTextDanger } from 'assets/js/lib/createElement';
 
 const loginForm = document.querySelector('.login-form form');
 const email = loginForm.querySelector('input#email');

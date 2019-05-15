@@ -1,25 +1,48 @@
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
+// @import '~bootstrap/scss/functions';
+// @import '~bootstrap/scss/variables';
+// @import '~bootstrap/scss/mixins';
 @import '../mixins/socialLoginBtn.scss';
+@import '../mixins//margin.scss';
+@import '../mixins//padding.scss';
 
 @include socialLoginBtn(n, rgb(30, 200, 0), rgb(10, 180, 0));
 @include socialLoginBtn(g, rgb(220, 78, 65), rgb(200, 58, 45));
 @include socialLoginBtn(f, rgb(59, 89, 152), rgb(39, 69, 132));
 
 .login-form {
+  @include marginY(10);
   h3.help {
     text-align: center;
+    margin: 0;
+  }
+  h3.help,
+  form,
+  .container {
+    @include padding(3, 3);
+  }
+  form {
+    .form-group {
+      // @include marginY(3);
+      @include paddingY(1);
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+  .container {
+    .social-login {
+      @include marginY(1);
+    }
   }
 }
 
-@include media-breakpoint-up(lg) {
-  .login-form {
-    width: 60%;
-  }
-}
-@include media-breakpoint-up(xl) {
-  .login-form {
-    width: 50%;
-  }
-}
+// @include media-breakpoint-up(lg) {
+//   .login-form {
+//     width: 60%;
+//   }
+// }
+// @include media-breakpoint-up(xl) {
+//   .login-form {
+//     width: 50%;
+//   }
+// }

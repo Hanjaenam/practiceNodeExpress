@@ -1,4 +1,4 @@
-@mixin loading($backgroundColor, $width, $height) {
+@mixin loading($backgroundColor: rgba(0, 0, 0, 0.2), $width: 5%, $height: 5%) {
   ul.loading {
     margin: 0;
     padding: 0;

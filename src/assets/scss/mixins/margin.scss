@@ -1,0 +1,11 @@
+@mixin margin($sizeY: 0, $sizeX: 0) {
+  margin: calc(#{$sizeY} * 1vh) calc(#{$sizeX} * 1vw);
+}
+@mixin marginX($size) {
+  margin-left: calc(#{$size} * 1vw);
+  margin-right: calc(#{$size} * 1vw);
+}
+@mixin marginY($size) {
+  margin-top: calc(#{$size} * 1vh);
+  margin-bottom: calc(#{$size} * 1vh);
+}

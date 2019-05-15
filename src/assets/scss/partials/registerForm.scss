@@ -1,19 +1,32 @@
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/mixins';
-@include media-breakpoint-up(lg) {
-  .register-form {
-    width: 60%;
-  }
-}
-@include media-breakpoint-up(xl) {
-  .register-form {
-    width: 50%;
-  }
-}
+// @import '~bootstrap/scss/functions';
+// @import '~bootstrap/scss/variables';
+// @import '~bootstrap/scss/mixins';
+// @include media-breakpoint-up(lg) {
+//   .register-form {
+//     width: 60%;
+//   }
+// }
+// @include media-breakpoint-up(xl) {
+//   .register-form {
+//     width: 50%;
+//   }
+// }
+@import '../mixins/margin.scss';
+@import '../mixins/padding.scss';
 
 .register-form {
+  @include marginY(10);
   h3.help {
     text-align: center;
+    margin: 0;
+  }
+  h3.help,
+  form {
+    @include padding(3, 3);
+  }
+  form {
+    .form-group {
+      @include paddingY(1);
+    }
   }
 }

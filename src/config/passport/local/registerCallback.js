@@ -12,9 +12,10 @@ export default (req, email, password, done) => {
         req.flash('errorType', 'email')
       );
     }
-    const user = await new UserModel({ email, password });
     try {
+      const user = await new UserModel({ email, password });
       user.save();
+      return done(null, user);
     } catch (e) {
       if (e instanceof mongoose.Error.ValidationError) {
         if (e.errors.email) {
@@ -36,6 +37,5 @@ export default (req, email, password, done) => {
       }
       return done(e);
     }
-    return done(null, user);
   });
 };

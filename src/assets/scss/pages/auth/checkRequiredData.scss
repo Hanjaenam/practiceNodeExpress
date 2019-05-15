@@ -7,13 +7,13 @@
     text-align: center;
   }
 }
-@include media-breakpoint-up(lg) {
-  .checkData-form {
-    width: 60%;
-  }
-}
-@include media-breakpoint-up(xl) {
-  .checkData-form {
-    width: 50%;
-  }
-}
+// @include media-breakpoint-up(lg) {
+//   .checkData-form {
+//     width: 60%;
+//   }
+// }
+// @include media-breakpoint-up(xl) {
+//   .checkData-form {
+//     width: 50%;
+//   }
+// }

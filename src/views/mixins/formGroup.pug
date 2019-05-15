@@ -1,12 +1,14 @@
 mixin formGroup(opts)
-  .form-group.mb-5
-    label(for=attributes.id)=opts.label
-    input(type=opts.type name=attributes.id aria-describedby=`${attributes.id}-error`).form-control&attributes(attributes)
-    if opts.error
-      if typeof(opts.error) === 'string'
-        if errorType === opts.error
+  .form-group
+    label(for=opts.id)=opts.label
+    input(type=opts.type name=opts.id id=opts.id).form-control&attributes(attributes)
+    if opts.small
+      small.form-text.text-muted(id=`${opts.id}-help`)=opts.small
+    if opts.errorType
+      if typeof(opts.errorType) === 'string'
+        if errorType === opts.errorType
           small(id=`${opts.id}-error`).form-text.text-danger=message
       else
-        each error in opts.error
-          if errorType === error
+        each _errorType in opts.errorType
+          if errorType === _errorType
             small(id=`${opts.id}-error`).form-text.text-danger=message

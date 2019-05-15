@@ -21,16 +21,6 @@ export default new mongoose.Schema({
     },
     unique: true,
   },
-  isMan: {
-    type: Boolean,
-  },
-  age: {
-    type: String,
-  },
-  birthday: {
-    type: String,
-    // required: false,
-  },
   hashedPassword: {
     type: String,
     required() {

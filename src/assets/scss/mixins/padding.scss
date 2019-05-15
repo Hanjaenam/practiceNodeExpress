@@ -1,0 +1,11 @@
+@mixin padding($sizeY: 0, $sizeX: 0) {
+  padding: calc(#{$sizeY} * 1vh) calc(#{$sizeX} * 1vw);
+}
+@mixin paddingX($size) {
+  padding-left: calc(#{$size} * 1vw);
+  padding-right: calc(#{$size} * 1vw);
+}
+@mixin paddingY($size) {
+  padding-top: calc(#{$size} * 1vh);
+  padding-bottom: calc(#{$size} * 1vh);
+}

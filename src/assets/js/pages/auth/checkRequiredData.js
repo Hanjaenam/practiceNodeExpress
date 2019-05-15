@@ -1,5 +1,5 @@
 import 'assets/scss/pages/auth/checkRequiredData.scss';
-import { createTextDanger } from 'assets/js/utils';
+import { createTextDanger } from 'assets/js/lib/createElement';
 
 const header = document.querySelector('body header');
 const checkDataForm = document.querySelector('.checkData-form form');

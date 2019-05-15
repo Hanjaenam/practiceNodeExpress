@@ -1,27 +1,33 @@
-.register-form.container.mt-5.rounded.shadow
-  h3.help.pt-5.pb-2 Register
-  form.p-4(action=`${routes.makeRedirectPath(routes.auth,routes.register)}` method="POST")
-    .form-group.mb-5
-      label(for="email") Email
-      input(type="email" placeholder="Email" name="email" aria-describedby="email-help" autofocus).form-control#email
-      small.form-text.text-muted#email-help We'll never share your email
-      if errorType === 'email'
-        small.form-text.text-danger#email-help=message
-    .form-group.mb-5
-      label(for="password") password
-      input(type="password" aria-describedby="password-help" name="password").form-control#password
-      small.form-text.text-muted#password-help Your password must be 8-15 characters long, 
-        |contain letters and numbers at least one spcial characters, and must not contain spaces
-      if errorType === 'password'
-        small.form-text.text-danger#password-help=message
-    .form-group.mb-5
-      label(for="password_confirm") password confirm
-      input(type="password").form-control#password_confirm
-    .form-row
-      .col
-        input(type="submit" value="OK").btn.btn-primary.form-control
-      .col
-        a(role="button" href=routes.home).btn.btn-primary.form-control cancle
+include /mixins/formGroup
+.container.rounded.shadow.register-form.user
+  h3.help Register
+  form(action=`${routes.makeRedirectPath(routes.auth,routes.register)}` method="POST")
+    +formGroup({type:'email', errorType:'email', label:'Email', id:'email', small:"we'll never share your email"})(placeholder="Email" aria-describedby="email-help")
+    +formGroup({type:'password', errorType:'password', label:'Password', id:'password', 
+      small:"Your password must be 8-15 characters long, contain letters and numbers at least one spcial characters, and must not contain spaces"})(placeholder="password" aria-describedby="password-help")
+    +formGroup({type:'password', label:'password confirm', id:'password_confirm'})(placeholder="password confirm")
+    //- .form-group
+    //-   label(for="email") Email
+    //-   input(type="email" placeholder="Email" name="email" aria-describedby="email-help" autofocus).form-control#email
+    //-   small.form-text.text-muted#email-help We'll never share your email
+    //-   if errorType === 'email'
+    //-     small.form-text.text-danger#email-help=message
+    //- .form-group
+    //-   label(for="password") password
+    //-   input(type="password" aria-describedby="password-help" name="password").form-control#password
+    //-   small.form-text.text-muted#password-help Your password must be 8-15 characters long, 
+    //-     |contain letters and numbers at least one spcial characters, and must not contain spaces
+    //-   if errorType === 'password'
+    //-     small.form-text.text-danger#password-help=message
+    //- .form-group
+    //-   label(for="password_confirm") password confirm
+    //-   input(type="password").form-control#password_confirm
+    .form-group
+      .form-row
+        .col
+          input(type="submit" value="OK").btn.btn-primary.form-control
+        .col
+          a(role="button" href=routes.home).btn.btn-primary.form-control cancle
 //- script
 //-   console.log('1')
   //- const emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;

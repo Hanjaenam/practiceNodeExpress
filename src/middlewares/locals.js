@@ -12,12 +12,17 @@ export default (req, res, next) => {
   res.locals.siteName = 'JaeNam';
   res.locals.routes = routes;
   res.locals.basedir = path.resolve(process.env.NODE_PATH, 'views');
-  res.locals.user = req.user || (process.env.TEST_SCSS === '1' ? 'dev' : null);
+  res.locals.user = req.user || null;
   return next();
 };
 
 export const onlyAfterAuth = (req, res, next) => {
-  if (process.env.TEST_SCSS) {
+  if (process.env.DEV_MODE === '1') {
+    req.user = {
+      username: 'devMode',
+      profilePhotoUrl: undefined,
+    };
+    res.locals.user = req.user;
     return next();
   }
   if (req.user) {

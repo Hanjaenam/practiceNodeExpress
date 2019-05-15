@@ -1,16 +1,18 @@
 include /mixins/socialLoginBtn
 include /mixins/formGroup
 
-.login-form.container.mt-5.rounded.shadow
-  h3.help.pt-5.pb-2 Log in
-  form.p-4(action=`${routes.makeRedirectPath(routes.auth, routes.logIn)}` method="POST")
-    +formGroup({type:"text", error: ["email","not allow local login"], label:"Email"})(id="email" placeholder="Email" autoFocus=true)
-    +formGroup({type:"password", error:"password", label:"Password"})(id="password" placeholder="password")
-    .form-row.mb-5
-      .col
-        input(type="submit" value="Log in").btn.btn-primary.form-control
-      .col
-        a(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.register)}`).btn.btn-primary.form-control Register
+.container.rounded.shadow.login-form.user
+  h3.help Log in
+  form(action=`${routes.makeRedirectPath(routes.auth, routes.logIn)}` method="POST")
+    +formGroup({type:"text", errorType: ["email","not allow local login"], label:"Email", id:'email'})(placeholder="Email" autoFocus=true aria-describedby="email-help")
+    +formGroup({type:"password", errorType:"password", label:"Password", id:'password'})(placeholder="password" aria-describedby="passwword-help")
+    .form-group
+      .form-row
+        .col
+          input(type="submit" value="Log in").btn.btn-primary.form-control
+        .col
+          a(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.register)}`).btn.btn-primary.form-control Register
+  .container
     +socialLoginBtn("n", "Naver", 'naver')
     +socialLoginBtn("g", "Google", 'google')
     +socialLoginBtn("f", "Facebook", 'facebook')
