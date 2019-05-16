@@ -1,9 +1,24 @@
-.d-flex.justify-content-between.align-items-center.p-2
-  div
-    a.btn.btn-outline-light(role="button" href=`${routes.home}`) Home
-  div
+.d-flex.align-items-center.container
+  ul.nav
+    li.nav-item
+      a.nav-link.rounded(href=`${routes.home}`) Home
+  .input-group.search-box.ml-1.input-group-sm
+    input.form-control(type="text" placeholder="search" aria-label="search" aria-describedby="search-button")
+    .input-group-append
+      button.btn.btn-outline-light#search-button(type="button")
+        i.fas.fa-search
+  ul.nav.menu
+    li.nav-item.dropdown
+      i.fas.fa-caret-down.dropdown-icon.fa-2x(data-toggle="dropdown")
+      .dropdown-menu
+        a.dropdown-item(href=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`) Edit Profile
+        a.dropdown-item(href=`${routes.makeRedirectPath(routes.user, routes.logOut)}`) Logout
+  ul.nav.list
     if user
-      a.btn.btn-outline-light.mr-1(role="button" href=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`) Edit Profile
-      a.btn.btn-outline-light(role="button" href=`${routes.makeRedirectPath(routes.user, routes.logOut)}`) Log Out
+      li.nav-item
+        a.nav-link.rounded(href=`${routes.makeRedirectPath(routes.user, routes.editProfile)}`) Edit Profile
+      li.nav-item
+        a.nav-link.rounded(href=`${routes.makeRedirectPath(routes.user, routes.logOut)}`) Log Out
     else
-      a.btn.btn-outline-light(role="button" href=`${routes.makeRedirectPath(routes.auth, routes.logIn)}`) Login
+      li.nav-item
+        a.nav-link.rounded(href=`${routes.makeRedirectPath(routes.auth, routes.logIn)}`) Login

@@ -2,8 +2,8 @@
 // @import '~bootstrap/scss/variables';
 // @import '~bootstrap/scss/mixins';
 @import '../mixins/socialLoginBtn.scss';
-@import '../mixins//margin.scss';
-@import '../mixins//padding.scss';
+@import '../mixins/margin.scss';
+@import '../mixins/padding.scss';
 
 @include socialLoginBtn(n, rgb(30, 200, 0), rgb(10, 180, 0));
 @include socialLoginBtn(g, rgb(220, 78, 65), rgb(200, 58, 45));

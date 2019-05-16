@@ -3,16 +3,15 @@
 ### important
 
 - &#9745; logout 기능
-- &#9744; user update 끝낼 것
+- &#9745; user update 끝낼 것
   - &#9745; axios API
   - &#9745; thumbnail 2번 이상 변경
   - &#9745; thumbnail update
   - &#9745; username, password
-  - &#9744; phonenumber
+  - &#9744; +) phonenumber
 - &#9744; local 회원가입 email 인증
-- &#9744; local <-> passport email 확인
 - &#9744; bootstrap codeSplitting (scss mixin사용할 때 중첩으로 빌드되는 bootstrap 라이브러리 -> 불필요한 중복 빌드)
-- &#9744; DB - tabel colletion
+- &#9744; DB - board
 
 ### append
 
@@ -20,6 +19,19 @@
 - &#9744; api ( + authorization header )
 
 <hr>
+
+## 19/5/16
+
+- header UI
+- home UI
+- table, comment DB schema
+
+<hr>
+
+## 19/5/15
+
+- edit password 완료
+- 로딩 화면, 성공, 실패 후 view까지
 
 ## 19/5/5
 

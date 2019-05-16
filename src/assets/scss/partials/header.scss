@@ -1,0 +1,62 @@
+@import '../mixins/padding.scss';
+header {
+  @include padding(1);
+  @media (max-width: 992px) {
+    .container {
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 790px) {
+    .nav {
+      &.menu {
+        display: block !important;
+      }
+      &.list {
+        display: none;
+      }
+    }
+  }
+  .search-box {
+    max-width: 450px;
+    input {
+      border: none;
+    }
+  }
+  li.nav-item {
+    &:nth-of-type(n + 2) {
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-left: 1px solid rgb(100, 100, 100);
+      }
+    }
+    a.nav-link {
+      color: white;
+    }
+  }
+  .nav {
+    margin-left: auto;
+    &.menu {
+      display: none;
+      .nav-item {
+        padding-left: 2vw;
+        cursor: pointer;
+        .dropdown-icon {
+          color: white;
+          &:hover {
+            color: rgb(200, 200, 200);
+          }
+        }
+        .dropdown-menu {
+          left: initial;
+          right: 0 !important;
+        }
+      }
+    }
+  }
+}
